@@ -1,0 +1,32 @@
+{
+  "id": "bioinfo-zero-gate-001",
+  "title": "Dataset license + de-identification gate (schema + blocking policy)",
+  "project": "bioinformatics-from-zero",
+  "type": "design-spec",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer", "bioinformatics", "education", "open-data", "data-ethics"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "bioinformatics-from-zero is an open, from-zero curriculum for cancer data analysis (R/Python) built only on open/aggregate/de-identified data. Per the binding Track-8 cancer guardrails, no dataset may appear in a lesson until its license, provenance, and de-identification/aggregate status are verified. This task defines the gate that every later dataset and lesson depends on.",
+  "objective": "Specify a machine-checkable dataset gate: the datasets.yml record schema and the pass/exclude policy that CI enforces, so controlled-access and identifiable data can never enter a lesson and every reuse decision is evidence-backed.",
+  "acceptanceCriteria": [
+    "Defines the datasets.yml record schema: id, source, url, license{id,url,snapshotRef}, permitsReuse, accessTier(open|aggregate|de-identified), deIdentified, provenance, sha256, fetch, attribution.",
+    "Pass rule: usable only if permitsReuse=true (evidence-backed), accessTier in {open,aggregate,de-identified}, and individual-level data has deIdentified=true with a stated basis; missing/unparseable evidence => EXCLUDE (no default-allow).",
+    "Explicitly excludes controlled-access (dbGaP, EGA, individual-level biobanks) and identifiable patient data; the curriculum must never teach how to obtain such data.",
+    "Requires a license text snapshot (committed text + SHA-256 + archival URL) and a recorded vendor-vs-fetch decision per dataset.",
+    "Gate is machine-checkable so CI can fail any lesson referencing a missing or failing dataset id."
+  ],
+  "resources": [
+    "C:/code/elyos/planning/ROADMAP.md (Track 8 cancer guardrails)",
+    "C:/code/elyos/planning/projects/open-data-datasheets/TASKS.md (license-gate pattern to reuse)",
+    "C:/code/elyos/docs/good-deed-definition.md"
+  ],
+  "output": "A CC-BY-4.0 design-spec document defining the datasets.yml schema and the blocking license/de-identification gate policy, ready for CI enforcement.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}
