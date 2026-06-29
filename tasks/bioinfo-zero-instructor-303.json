@@ -1,0 +1,37 @@
+{
+  "id": "bioinfo-zero-instructor-303",
+  "title": "Instructor guide + glossary + translation-readiness pass",
+  "project": "bioinformatics-from-zero",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "pedagogy",
+    "i18n"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "This task produces the instructor guide and glossary and runs a translation-readiness pass (plain language, externalised structure, i18n notes). Actual translation is deferred; any patient-facing translation is flagged out-of-scope/high-risk.",
+  "objective": "Author the instructor guide and complete glossary, mapping modules to outcomes/timings/prerequisites, and run a translation-readiness pass with i18n notes (translation itself deferred).",
+  "acceptanceCriteria": [
+    "Maps modules to learning outcomes, timings, and prerequisites; glossary complete.",
+    "Translation-readiness pass: plain language, externalised structure, i18n notes (actual translation deferred; patient-facing translation flagged out-of-scope/high-risk).",
+    "Reviewed by Pedagogy; output licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "/output/instructor/instructor-guide.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

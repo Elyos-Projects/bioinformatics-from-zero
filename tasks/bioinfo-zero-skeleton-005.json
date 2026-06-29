@@ -1,0 +1,37 @@
+{
+  "id": "bioinfo-zero-skeleton-005",
+  "title": "Curriculum skeleton + per-module learning outcomes",
+  "project": "bioinformatics-from-zero",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "pedagogy"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "bioinformatics-from-zero is a from-zero cancer-data curriculum in parallel R and Python tracks. Before modules are authored, the overall arc and per-module learning outcomes must be fixed so each later lesson has explicit, checkable outcomes and prerequisites.",
+  "objective": "Author the curriculum skeleton: the ordered module map (M0 foundation through M3 capstone) with per-module learning outcomes, prerequisites, and the dual-track (R/Python) intent.",
+  "acceptanceCriteria": [
+    "Lists every planned module in order with explicit, checkable learning outcomes per module.",
+    "States prerequisites/dependencies between modules consistent with the TASKS.md milestone graph.",
+    "Notes the parallel R and Python track intent and where single-source Quarto authoring applies.",
+    "Reviewed by Pedagogy; output licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "/output/curriculum/skeleton.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

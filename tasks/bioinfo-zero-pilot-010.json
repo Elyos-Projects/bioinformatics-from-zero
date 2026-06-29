@@ -1,0 +1,39 @@
+{
+  "id": "bioinfo-zero-pilot-010",
+  "title": "Pilot lesson end-to-end (setup / tiny tabular) through full gate chain",
+  "project": "bioinformatics-from-zero",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "pedagogy",
+    "reproducibility"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "The M0 exit criterion is one pilot lesson that exercises the entire gate chain end-to-end: gated data, dual-track execution from lockfiles, accessibility, citations, and the dataset-gate CI. This proves the whole machine works before module authoring scales up.",
+  "objective": "Author one complete from-zero pilot lesson (setup / tiny tabular) that executes clean in CI in both tracks from lockfiles, uses only gated datasets, cites every claim, and passes the accessibility checklist - demonstrating the full gate chain.",
+  "acceptanceCriteria": [
+    "A complete from-zero lesson executes clean in CI in both tracks from lockfiles.",
+    "Uses only datasets passing the gate; every factual claim cited; attribution surfaced.",
+    "Passes accessibility checklist; learning outcomes stated; exercise + solution included.",
+    "Carries correct license; demonstrates the entire gate chain works end-to-end.",
+    "Output licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "content/00-pilot/pilot-lesson.qmd",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

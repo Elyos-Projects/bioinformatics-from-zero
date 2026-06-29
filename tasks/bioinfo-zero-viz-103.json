@@ -1,0 +1,38 @@
+{
+  "id": "bioinfo-zero-viz-103",
+  "title": "Module: data visualisation for cancer data",
+  "project": "bioinformatics-from-zero",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "pedagogy",
+    "visualisation"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "This module teaches principled data visualisation for cancer data (ggplot2 / matplotlib-seaborn) in both tracks, including accessible, colour-blind-safe figures consistent with the project accessibility checklist.",
+  "objective": "Author the data-visualisation module in both tracks using gated datasets, emphasising accessible and honest visual encoding, with exercises, solutions, and learning outcomes.",
+  "acceptanceCriteria": [
+    "Both R and Python tracks; CI parity check passes; executes clean from lockfiles.",
+    "Uses only gated datasets; every claim/figure source cited and attribution surfaced.",
+    "Figures meet the accessibility checklist (alt text, colour-contrast/colour-blind-safe palettes).",
+    "Exercises with solutions; learning outcomes stated; reviewed by Technical + Pedagogy; output licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "content/03-viz/viz.qmd",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

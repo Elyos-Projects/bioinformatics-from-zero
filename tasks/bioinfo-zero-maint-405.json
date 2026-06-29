@@ -1,0 +1,37 @@
+{
+  "id": "bioinfo-zero-maint-405",
+  "title": "Scheduled CI re-run + dependency version-bump + re-verification",
+  "project": "bioinformatics-from-zero",
+  "type": "maintenance",
+  "lane": "donated",
+  "priority": "low",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "tooling",
+    "reproducibility"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Lessons rot as dependencies and upstream sources change. This recurring maintenance task schedules CI re-runs, bumps pinned dependency versions, and re-verifies lessons and the dataset gate.",
+  "objective": "Add a scheduled CI job that re-runs all lessons, bumps pinned dependency versions, and re-verifies lesson execution and the dataset gate, catching lesson rot.",
+  "acceptanceCriteria": [
+    "Scheduled CI re-runs all lessons in both tracks and re-runs the dataset-gate audit.",
+    "Dependency version bumps are proposed/applied with lockfiles updated and builds green.",
+    "Failures (lesson rot, broken dataset links) are surfaced clearly; reviewed by Technical; code licensed MIT."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": ".github/workflows/scheduled-maintenance.yml",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

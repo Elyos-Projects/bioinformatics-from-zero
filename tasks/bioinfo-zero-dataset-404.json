@@ -1,0 +1,37 @@
+{
+  "id": "bioinfo-zero-dataset-404",
+  "title": "Add 3 more gated teaching datasets to datasets.yml",
+  "project": "bioinformatics-from-zero",
+  "type": "data",
+  "lane": "donated",
+  "priority": "low",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "data-ethics"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "This backlog task expands datasets.yml with three more teaching datasets, each run through the gate-001 gate with full license snapshot and provenance, broadening the data available to later modules.",
+  "objective": "Add at least 3 more teaching datasets to datasets.yml, each fully recorded and PASSING the gate (or excluded with reason), reviewed by License+Data-Ethics.",
+  "acceptanceCriteria": [
+    "At least 3 additional sources fully recorded against the gate-001 schema; each PASSING the gate or excluded with reason.",
+    "Each record has a license snapshot (committed text + SHA-256 + archival URL) and a vendor-vs-fetch decision.",
+    "No record has accessTier outside the permitted enum; no individual-level record without deIdentified=true + basis.",
+    "Reviewed and signed off by License+Data-Ethics; output licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "datasets.yml",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

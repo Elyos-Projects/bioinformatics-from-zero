@@ -1,0 +1,37 @@
+{
+  "id": "bioinfo-zero-reviewer-002",
+  "title": "Name/secure the License+Data-Ethics and Domain reviewer roles",
+  "project": "bioinformatics-from-zero",
+  "type": "research",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "governance"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "bioinformatics-from-zero gates every dataset and every clinical-interpretation lesson behind named human reviewers (License+Data-Ethics and an oncology-aware Domain reviewer). Several medium-risk tasks (M2 cancer-genomics, stats-104) are blocked until these roles are filled. This task documents the role definitions and the search to secure them.",
+  "objective": "Produce a reviewer-roles document that defines the License+Data-Ethics and Domain (oncology-aware) reviewer responsibilities, qualification bar, and a shortlist/status for securing each, so blocking review gates have an owner or an explicit 'TO BE SECURED'.",
+  "acceptanceCriteria": [
+    "Defines responsibilities, qualification bar, and sign-off authority for the License+Data-Ethics reviewer (blocking dataset gate) and the oncology-aware Domain reviewer.",
+    "Records the current status of each role as a named person/program or an explicit 'TO BE SECURED', with no fabricated commitments.",
+    "States which milestones/tasks are blocked until each role is secured (e.g. M2 is blocked on the Domain reviewer).",
+    "Output licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "/output/governance/reviewer-roles.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

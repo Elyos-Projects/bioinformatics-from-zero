@@ -1,0 +1,39 @@
+{
+  "id": "bioinfo-zero-de-202",
+  "title": "Module: differential expression (limma/DESeq2 / statsmodels)",
+  "project": "bioinformatics-from-zero",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "pedagogy",
+    "genomics",
+    "statistics"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "This module teaches differential expression (limma/DESeq2 in R, statsmodels in Python) on a gated expression dataset, with correct multiple-testing control and pitfall warnings. Medium-risk cancer-biology content requiring Domain review.",
+  "objective": "Author the differential-expression module in both tracks on a gated dataset, teaching normalisation, model design, and FDR control with explicit pitfall warnings, reviewed by Domain.",
+  "acceptanceCriteria": [
+    "Uses a gated, open/de-identified expression dataset; provenance + attribution surfaced.",
+    "Correctly teaches normalisation, model design, and multiple-testing control (FDR); warns against common pitfalls (batch effects, p-hacking).",
+    "Both R and Python tracks; CI green; every biological claim cited; Domain review approved.",
+    "Output licensed CC-BY-4.0. Blocked until the Domain reviewer is secured."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "content/06-differential-expression/de.qmd",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

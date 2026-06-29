@@ -1,0 +1,39 @@
+{
+  "id": "bioinfo-zero-cluster-301",
+  "title": "Module: dimensionality reduction & clustering (PCA, UMAP, k-means)",
+  "project": "bioinformatics-from-zero",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "pedagogy",
+    "genomics",
+    "machine-learning"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "This module teaches dimensionality reduction and clustering (PCA, UMAP, k-means) on gated expression data in both tracks, including honest interpretation of unsupervised structure.",
+  "objective": "Author the dimensionality-reduction-and-clustering module in both tracks on gated expression data, teaching PCA, UMAP, and k-means with cautious interpretation, exercises, solutions, and learning outcomes.",
+  "acceptanceCriteria": [
+    "Both R and Python tracks; CI parity check passes; executes clean from lockfiles.",
+    "Uses gated expression data; provenance + attribution surfaced; every claim cited.",
+    "Teaches the limits/assumptions of PCA, UMAP, and k-means (no over-interpretation of clusters).",
+    "Exercises with solutions; learning outcomes stated; reviewed by Technical + Pedagogy; output licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "content/08-clustering/clustering.qmd",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

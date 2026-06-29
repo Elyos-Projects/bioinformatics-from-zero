@@ -1,0 +1,38 @@
+{
+  "id": "bioinfo-zero-harness-006",
+  "title": "Reproducibility harness: renv + conda/pixi locks + Quarto dual-track render",
+  "project": "bioinformatics-from-zero",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "reproducibility",
+    "tooling"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Every lesson must execute reproducibly in both R and Python from pinned environments. This task builds the reproducibility harness - renv plus conda/pixi lockfiles and a Quarto dual-track render - that all modules and CI depend on.",
+  "objective": "Deliver a reproducibility harness: renv.lock (R) and environment.yml/pixi.lock (Python) that build clean in a fresh runner, plus a Quarto dual-track example that renders deterministically from one source.",
+  "acceptanceCriteria": [
+    "renv.lock (R) and environment.yml/pixi.lock (Python) build clean in a fresh runner.",
+    "Quarto renders a dual-track (R + Python) example from one source; outputs deterministic.",
+    "Documented minimum specs + a free cloud-notebook fallback path.",
+    "Reviewed by Technical; code licensed MIT."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "renv.lock, environment.yml, pixi.lock, and a sample dual-track .qmd under content/",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

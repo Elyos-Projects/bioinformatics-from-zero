@@ -1,0 +1,39 @@
+{
+  "id": "bioinfo-zero-survival-203",
+  "title": "Module: survival analysis (Kaplan-Meier, Cox) - education-only",
+  "project": "bioinformatics-from-zero",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "pedagogy",
+    "statistics",
+    "clinical-interpretation"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "This module teaches survival analysis (Kaplan-Meier, Cox) strictly as education on de-identified/aggregate outcome data. Per the binding guardrails it carries a standing 'not medical advice' disclaimer, gives no individual prognostic guidance, and REQUIRES oncology-aware Domain review before it can be done.",
+  "objective": "Author the survival-analysis module in both tracks on gated de-identified/aggregate outcome data, teaching censoring, KM curves, hazard ratios and their limits, education-only with a prominent disclaimer and obtained Domain review.",
+  "acceptanceCriteria": [
+    "Education-only; standing 'not medical advice' disclaimer prominent; no prognostic guidance framed as applicable to an individual.",
+    "Uses de-identified/aggregate outcome data passing the gate; teaches censoring, KM curves, hazard ratios, and their limits.",
+    "Domain (oncology-aware) review required and obtained before done; both R and Python tracks; CI green.",
+    "Every claim cited; output licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "content/07-survival/survival.qmd",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}
