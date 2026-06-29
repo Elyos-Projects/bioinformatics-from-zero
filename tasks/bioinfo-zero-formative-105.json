@@ -1,0 +1,45 @@
+{
+  "id": "bioinfo-zero-formative-105",
+  "title": "M1 assessment layer: formative checks, lightweight auto-checker, and capstone rubric",
+  "project": "bioinformatics-from-zero",
+  "type": "code",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "pedagogy",
+    "tooling"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "PLAN.md v0.2 promotes the lightweight auto-checker out of 'post-MVP / M4+ backlog' and mandates it from M1: formative checks per lesson, a Rosalind-style expected-output/answer checker introduced in M1, a capstone rubric, and an optional diagnostic pre-test. This is distinct from the advanced autograder in bioinfo-zero-autograde-401 (M4+, mastery / diagnostic pre-tests at depth). This M1 task delivers the minimal viable assessment layer: simple expected-output checks that run in CI and locally, per-lesson formative questions (not just full exercises), and a capstone rubric document so self-paced learners have verifiable checkpoints from the start of the curriculum.",
+  "objective": "Deliver the M1 assessment layer: (1) a lightweight auto-checker tool (Rosalind-style expected-output/answer checks) that runs in CI and locally for both R and Python tracks, introduced in M1; (2) at least one formative check per M1 lesson wired to the auto-checker; (3) a capstone rubric document (for M3); and (4) an optional diagnostic pre-test for the 'from zero' entry floor (validates a learner truly starts from zero). The auto-checker must not leak solutions prematurely.",
+  "acceptanceCriteria": [
+    "A lightweight auto-checker tool (tools/checker/ or similar) checks learner outputs against expected results for at least the M1 tabular and visualisation lessons in both R and Python tracks.",
+    "The auto-checker runs in CI (every commit) and can be run locally by a learner without leaking hidden solutions.",
+    "Each M1 lesson (setup-101, tabular-102, viz-103, stats-104) includes at least one formative check wired to the auto-checker with a checkable expected output.",
+    "A capstone rubric document (docs/capstone-rubric.md) is committed with clear, self-assessable criteria for the M3 capstone (capstone-302).",
+    "An optional diagnostic pre-test (docs/diagnostic-pretest.md or a short runnable quiz) is included to help learners validate they start at the declared 'never-opened-terminal' entry-skill floor.",
+    "Reviewed by Technical + Pedagogy reviewers; tool code licensed MIT, rubric/pretest licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md v0.2 (§ Goals — real assessment design, § Solution/architecture — assessment layer, § Roadmap M1, § Backlog optimizations #5)",
+    "tasks/bioinfo-zero-autograde-401.json (M4+ advanced autograder this does NOT duplicate — keep scope separate)",
+    "tasks/bioinfo-zero-capstone-302.json (capstone this rubric targets)",
+    "tasks/bioinfo-zero-objectives-012.json (front-matter schema whose 'learningObjectives' formative checks map to)",
+    "tasks/bioinfo-zero-setup-101.json",
+    "tasks/bioinfo-zero-tabular-102.json",
+    "tasks/bioinfo-zero-viz-103.json",
+    "tasks/bioinfo-zero-stats-104.json"
+  ],
+  "output": "tools/checker/ (auto-checker) + per-lesson formative check files in content/M1/ + docs/capstone-rubric.md + docs/diagnostic-pretest.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

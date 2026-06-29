@@ -1,0 +1,41 @@
+{
+  "id": "bioinfo-zero-objectives-012",
+  "title": "Per-lesson learning-objectives + entry-skill-floor front-matter schema (CI-linted)",
+  "project": "bioinformatics-from-zero",
+  "type": "design-spec",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "pedagogy",
+    "tooling"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "PLAN.md v0.2 adds an explicit goal: anchor every lesson to per-lesson, measurable learning objectives (Bloom's-style 'the learner will be able to…') and a declared entry-skill floor ('never opened a terminal'), expressed as a CI-checkable front-matter block. This makes 'from zero' a spec, not an aspiration. The pedagogy review gate (§8) now requires these objectives to be present and CI-linted. This is an M0 exit criterion. It is distinct from skeleton-005 (which produces a module-level narrative skeleton) — this task defines the machine-readable schema embedded in every .qmd and the CI lint that enforces it.",
+  "objective": "Define and implement the per-lesson learning-objectives + entry-skill-floor front-matter schema: a YAML front-matter block standard for every .qmd lesson, a JSON Schema or equivalent validator, and a CI lint step that fails the build if any lesson is missing or has a malformed learning-objectives or entry-skill block. Include an authoring guide (inline or in docs/) explaining Bloom's taxonomy verb selection and entry-skill floor values.",
+  "acceptanceCriteria": [
+    "A committed schema document (e.g., schemas/lesson-frontmatter.schema.json or YAML Schema) defines required fields: at minimum 'learningObjectives' (list of Bloom's-style strings, ≥1), 'entrySkillFloor' (declared level, e.g. 'never-opened-terminal' | 'basic-terminal' | 'basic-R-or-Python'), and 'prerequisites' (list of lesson ids, may be empty).",
+    "A CI lint step validates every .qmd front-matter block against the schema and fails the build on any missing or malformed field.",
+    "An authoring guide (docs/lesson-authoring.md or inline in the schema doc) explains Bloom's taxonomy verb selection and the permitted entry-skill-floor values.",
+    "The pilot lesson (pilot-010) is updated to carry a conforming front-matter block as the reference example.",
+    "Reviewed by Pedagogy reviewer; schema/tooling licensed MIT, guide licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md v0.2 (§ Goals, § Scope — deliverables, § Quality review §8, § Roadmap M0 exit criteria)",
+    "tasks/bioinfo-zero-skeleton-005.json (module-level skeleton this front-matter schema complements)",
+    "tasks/bioinfo-zero-ci-007.json (CI that runs the lint step)",
+    "tasks/bioinfo-zero-pilot-010.json (pilot lesson updated as reference example)",
+    "tasks/bioinfo-zero-prereq-dag-013.json (DAG that consumes the prerequisites field from this schema)"
+  ],
+  "output": "schemas/lesson-frontmatter.schema.json + CI lint step in .github/workflows/ci.yml + docs/lesson-authoring.md (guide)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}
