@@ -1,0 +1,38 @@
+{
+  "id": "bioinfo-zero-catalog-003",
+  "title": "Verified-open dataset catalogue (datasets.yml) seeded with 3 sources",
+  "project": "bioinformatics-from-zero",
+  "type": "data",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "data-ethics"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Per the binding cancer guardrails, no dataset enters a lesson until it passes the gate defined in gate-001. This task seeds datasets.yml - the single source of truth for every dataset - with at least three candidate teaching sources, each fully recorded and run through the gate, so later modules have vetted data to teach on.",
+  "objective": "Seed datasets.yml with at least 3 candidate sources (e.g. a Bioconductor teaching expression set, DepMap, a SEER*Explorer/GLOBOCAN aggregate), each fully recorded against the gate-001 schema and either PASSING the gate or flagged/excluded with reason.",
+  "acceptanceCriteria": [
+    "At least 3 candidate sources fully recorded and each PASSING the gate (e.g. a Bioconductor teaching expression set, DepMap, a SEER*Explorer/GLOBOCAN aggregate) - or flagged/excluded with reason if they fail.",
+    "Each record has a license snapshot (committed text + SHA-256 + archival URL) and a vendor-vs-fetch decision recorded.",
+    "No record has accessTier outside the permitted enum; no individual-level record without deIdentified=true + basis.",
+    "Reviewed and signed off by License+Data-Ethics (blocking).",
+    "Output licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "datasets.yml",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

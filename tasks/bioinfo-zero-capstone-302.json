@@ -1,0 +1,39 @@
+{
+  "id": "bioinfo-zero-capstone-302",
+  "title": "Capstone: reproduce a small published-style analysis from zero + research ethics",
+  "project": "bioinformatics-from-zero",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "pedagogy",
+    "genomics",
+    "research-ethics"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "The capstone has an external learner reproduce a small published-style cancer analysis from a clean environment using only the curriculum and gated datasets, and includes a research-ethics + reproducibility section. Medium-risk; requires Domain review.",
+  "objective": "Author the capstone in both tracks: a reproducible end-to-end small published-style analysis on gated data plus a research-ethics + reproducibility section, reviewed by Domain.",
+  "acceptanceCriteria": [
+    "An external learner can reproduce the full analysis from a clean environment using only the curriculum and gated datasets; CI executes it end-to-end.",
+    "Includes a research-ethics + reproducibility section (provenance, licensing, limits of de-identified/aggregate data, 'not medical advice').",
+    "Domain review confirms biological/clinical statements; both R and Python tracks; every claim cited.",
+    "Output licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "content/09-capstone/capstone.qmd",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

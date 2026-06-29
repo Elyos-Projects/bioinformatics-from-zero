@@ -1,0 +1,38 @@
+{
+  "id": "bioinfo-zero-stats-104",
+  "title": "Module: statistics foundations + statistical humility (multiple testing)",
+  "project": "bioinformatics-from-zero",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "pedagogy",
+    "statistics"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "This module teaches statistics foundations with explicit statistical humility - distributions, hypothesis testing, p-values, multiple-testing correction, confounding, and 'correlation != causation'. As a medium-risk module touching clinical examples, it requires Domain review and a 'not medical advice' framing.",
+  "objective": "Author the statistics-foundations module in both tracks with reproducible examples, teaching multiple-testing correction and confounding, reviewed as education-only by Domain.",
+  "acceptanceCriteria": [
+    "Teaches distributions, hypothesis testing, p-values, multiple-testing correction, confounding, and 'correlation != causation,' with reproducible examples.",
+    "Domain review confirms framing is education-only and statistically sound; 'not medical advice' disclaimer present where any clinical example appears.",
+    "Every claim cited; both R and Python tracks; CI green.",
+    "Reviewed by Technical, Pedagogy, and Domain; output licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "content/04-stats/stats.qmd",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "bioinfo-zero-i18n-402",
+  "title": "First translation track (non-patient-facing content)",
+  "project": "bioinformatics-from-zero",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "low",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "i18n",
+    "pedagogy"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "translation",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "This backlog task pilots the first translation track for non-patient-facing curriculum content, building on instructor-303's translation-readiness pass. A per-language reviewer is needed; patient-facing translation remains out-of-scope/high-risk. The target language is not yet enumerated in the plan, so this is one representative task pending a named language + reviewer.",
+  "objective": "Pilot a first translation track for non-patient-facing content once a target language and per-language reviewer are secured, preserving plain-language structure and surfacing all attributions.",
+  "acceptanceCriteria": [
+    "Covers non-patient-facing content only; patient-facing material remains out-of-scope/high-risk and is not translated.",
+    "A named per-language reviewer reviews the translation for accuracy and plain language before delivery.",
+    "Source structure/attribution preserved; both tracks' code remains executable; CI green.",
+    "Translation licensed compatibly with the source content (CC-BY-4.0 for the project's own CC-BY content; never relicense a copyrighted source).",
+    "Representative task only: concrete per-language tasks expand once a target language + reviewer are confirmed (do not fabricate languages)."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "/output/i18n/<lang>/ (target language TO BE SECURED)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

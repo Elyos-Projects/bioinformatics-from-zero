@@ -1,0 +1,37 @@
+{
+  "id": "bioinfo-zero-outreach-009",
+  "title": "Partner/educator outreach + adopting-program shortlist",
+  "project": "bioinformatics-from-zero",
+  "type": "research",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "outreach"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Elyos success is 'delivered, not merged': the curriculum must reach a real adopting educator/program. verifiedNeed stays false until a named partner agrees to adopt/review. This task drafts the outreach shortlist that pursues that partner.",
+  "objective": "Draft an outreach plan and shortlist of candidate educators/programs that could adopt or review the curriculum, with contact approach and adoption criteria - securing the 'delivered' gate.",
+  "acceptanceCriteria": [
+    "Shortlist of candidate adopting educators/programs with rationale and contact approach (no fabricated commitments).",
+    "States the adoption/review ask and what 'delivered' looks like for each candidate.",
+    "Tracks status honestly (verifiedNeed remains false until a named partner agrees).",
+    "Reviewed by Maintainer; output licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "/output/outreach/adopting-program-shortlist.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "bioinfo-zero-ci-007",
+  "title": "CI: execute every lesson + run dataset-gate audit + a11y/parity checks",
+  "project": "bioinformatics-from-zero",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "reproducibility",
+    "tooling"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "CI is the enforcement point for the project's guarantees: every lesson must execute, every dataset id must pass the gate (gate-001), and R/Python parity plus accessibility checks must hold. This task implements that CI on top of the harness (harness-006).",
+  "objective": "Implement CI that executes every lesson in both tracks from lockfiles, runs the datasets.yml gate audit (failing any lesson that references a missing/failing dataset id), and runs accessibility + R/Python parity checks.",
+  "acceptanceCriteria": [
+    "CI executes every lesson in both R and Python tracks from the committed lockfiles.",
+    "CI runs the dataset-gate audit and FAILS the build on any lesson referencing a missing, permitsReuse=false, or out-of-enum accessTier dataset id.",
+    "CI runs accessibility and R/Python parity checks and reports failures clearly.",
+    "Depends on harness-006 and gate-001; reviewed by Technical; code licensed MIT."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": ".github/workflows/ci.yml",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

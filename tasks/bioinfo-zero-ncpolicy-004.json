@@ -1,0 +1,38 @@
+{
+  "id": "bioinfo-zero-ncpolicy-004",
+  "title": "NC / share-alike vs CC-BY acceptance policy",
+  "project": "bioinformatics-from-zero",
+  "type": "design-spec",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "data-ethics"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Candidate teaching datasets carry non-commercial (NC) and share-alike clauses that must be reconciled with the project's CC-BY-4.0 content license and MIT code license. This task defines, explicitly, when NC and share-alike sources are acceptable and how conflicts with the CC-BY content license are flagged.",
+  "objective": "Specify the acceptance policy for NC and share-alike licensed sources versus the project's CC-BY-4.0 content license, with a clear decision rule the dataset gate and reviewers apply.",
+  "acceptanceCriteria": [
+    "States when NC sources are acceptable (non-commercial educational use, honoured and clearly labelled in lesson and any republished derivative).",
+    "States when share-alike sources are acceptable (only if we can comply) and how any conflict with the CC-BY content license is flagged.",
+    "Defines the fallback for closed/ambiguous/'academic-only/no-redistribution' sources: fetch-by-script never vendored, or exclude.",
+    "Aligns with the gate-001 pass/exclude rule; reviewed by License+Data-Ethics.",
+    "Output licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "/output/policy/nc-sharealike-acceptance.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "bioinfo-zero-setup-101",
+  "title": "Module: environment setup from zero (terminal, R/Python, notebooks)",
+  "project": "bioinformatics-from-zero",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "pedagogy",
+    "reproducibility"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "The first core module takes an absolute beginner from nothing to a working dual-track environment (terminal, R, Python, notebooks) reproducible from the project lockfiles. It is the prerequisite for every later module.",
+  "objective": "Author the environment-setup-from-zero module (terminal, R, Python, notebooks) in both tracks, reproducible from lockfiles, with exercises, solutions, and stated learning outcomes.",
+  "acceptanceCriteria": [
+    "Both R and Python tracks; executes clean in CI from the committed lockfiles; parity check passes.",
+    "Takes a true beginner from zero to a working environment including the free cloud-notebook fallback.",
+    "Exercises with solutions; learning outcomes stated; accessibility checklist passed.",
+    "Reviewed by Technical + Pedagogy; output licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "content/01-setup/setup.qmd",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

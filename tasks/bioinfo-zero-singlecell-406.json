@@ -1,0 +1,39 @@
+{
+  "id": "bioinfo-zero-singlecell-406",
+  "title": "Optional advanced module: intro single-cell (open data)",
+  "project": "bioinformatics-from-zero",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "low",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "pedagogy",
+    "genomics",
+    "single-cell"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "An optional advanced module introduces single-cell analysis on open data, to be authored only after the core curriculum arc is proven. Medium-risk cancer-genomics content requiring Domain review.",
+  "objective": "Author an optional intro-single-cell module in both tracks on gated open single-cell data, teaching the basic workflow and its caveats, reviewed by Domain - only after the core arc is proven.",
+  "acceptanceCriteria": [
+    "Uses gated, open single-cell data; provenance + attribution surfaced; every biological claim cited.",
+    "Teaches the basic single-cell workflow and its limitations/caveats; both R and Python tracks; CI green.",
+    "Domain review approved; output licensed CC-BY-4.0.",
+    "Sequenced only after the core curriculum arc (M0-M3) is proven."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "content/10-single-cell/single-cell.qmd",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

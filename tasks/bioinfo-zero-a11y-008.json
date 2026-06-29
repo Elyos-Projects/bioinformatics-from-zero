@@ -1,0 +1,38 @@
+{
+  "id": "bioinfo-zero-a11y-008",
+  "title": "Accessibility + plain-language authoring checklist",
+  "project": "bioinformatics-from-zero",
+  "type": "design-spec",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "accessibility",
+    "pedagogy"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "From-zero learners include people new to programming and people using assistive technology. This task defines the accessibility and plain-language checklist every lesson must pass, so CI (ci-007) and reviewers can enforce it.",
+  "objective": "Author an accessibility + plain-language authoring checklist (alt text, colour-contrast, reading level, structure/headings, code-block accessibility) that every lesson must satisfy and CI can check.",
+  "acceptanceCriteria": [
+    "Defines concrete, checkable accessibility requirements (alt text on figures, colour-contrast, semantic headings/structure, keyboard/screen-reader-friendly code blocks).",
+    "Defines plain-language requirements (reading-level target, jargon-on-first-use definitions, glossary linkage).",
+    "Items are machine-checkable where feasible so ci-007 can enforce them.",
+    "Reviewed by Pedagogy; output licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "/output/policy/accessibility-checklist.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

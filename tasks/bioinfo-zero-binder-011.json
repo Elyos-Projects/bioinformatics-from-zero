@@ -1,0 +1,41 @@
+{
+  "id": "bioinfo-zero-binder-011",
+  "title": "CI-tested zero-install browser fallback (Binder/repo2docker + Colab/Posit Cloud/Codespaces)",
+  "project": "bioinformatics-from-zero",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "reproducibility",
+    "tooling"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "PLAN.md v0.2 promotes a zero-install browser fallback from an afterthought to a first-class, M0-exit deliverable. A learner on a low-spec or Windows machine must never need to debug a local install. The plan mandates: Binder/repo2docker as primary path; Colab / Posit Cloud / Codespaces as named fallbacks; webR / JupyterLite evaluated for install-free R/Python; and all paths CI-tested against explicit MB/RAM/cold-load-time budgets. No single hosted service may be a hard dependency. This task is an M0 exit criterion per PLAN.md v0.2.",
+  "objective": "Deliver a CI-tested zero-install browser fallback: a repo2docker configuration (apt.txt, runtime.txt or environment.yml binder/) that launches a working Quarto/R/Python environment on mybinder.org, documented fallback instructions for Colab / Posit Cloud / Codespaces, an evaluation note on webR/JupyterLite viability, and a CI step that builds the Binder image (or image manifest) and asserts declared MB/RAM/cold-load budgets are met.",
+  "acceptanceCriteria": [
+    "A repo2docker / Binder configuration (binder/ directory) is committed and launches a working dual-track (R + Python) environment on mybinder.org without manual setup.",
+    "Documented fallback paths (Colab, Posit Cloud, Codespaces) with launch links or one-click badges, so no single hosted service is a hard dependency.",
+    "A written evaluation note (inline or in docs/) covers webR and JupyterLite viability for install-free R/Python and why each is or is not adopted.",
+    "Declared MB/RAM/cold-load-time budgets are committed as constants (e.g., in a binder/budgets.yml or CI env vars) and a CI step asserts the Binder image build stays within them.",
+    "CI step fails the build if the Binder image exceeds declared MB/RAM budgets or cold-load-time target.",
+    "Reviewed by Technical reviewer; code licensed MIT."
+  ],
+  "resources": [
+    "PLAN.md v0.2 (§ Goals, § Scope — deliverables, § Solution/architecture — zero-install fallback, § Roadmap M0 exit criteria, § Risks)",
+    "tasks/bioinfo-zero-harness-006.json (renv + conda/pixi locks this builds on)",
+    "tasks/bioinfo-zero-ci-007.json (CI this integrates with)",
+    "tasks/bioinfo-zero-pilot-010.json (pilot lesson that exercises the zero-install path)"
+  ],
+  "output": "binder/ directory (repo2docker config) + .github/workflows step for budget assertions + docs/zero-install.md (fallback guide + webR/JupyterLite evaluation)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

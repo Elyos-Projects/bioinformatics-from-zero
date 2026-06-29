@@ -1,0 +1,38 @@
+{
+  "id": "bioinfo-zero-gapmap-014",
+  "title": "Prior-art delta / gap-map vs Carpentries, bioc-intro, and HBC hbctraining",
+  "project": "bioinformatics-from-zero",
+  "type": "research",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "pedagogy"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "PLAN.md v0.2 adds a prior-art delta / gap-map as an M0 exit criterion, motivated by the new Competitive landscape & differentiation section. Because high-quality adjacent OER already exists (Carpentries Data Carpentry Genomics, Bioconductor carpentries-incubator/bioc-intro, Harvard Chan hbctraining), this curriculum must argue its non-duplication concretely, not asserted. The gap-map must record: which episodes/modules are net-new (cancer-specific, Python-parity, reproducibility-by-construction); which CC-BY neighbours are candidates for fork-and-adapt; and where the curriculum's unique intersection (from-zero + cancer-specific + dual R+Python + CI-reproducible) is genuinely unoccupied. This is also the document that decides what to author fresh vs reuse under CC-BY licensing.",
+  "objective": "Produce a prior-art delta / gap-map document that: surveys the three closest OER neighbours (Carpentries Data Carpentry Genomics, Bioconductor bioc-intro / carpentries-incubator, Harvard Chan hbctraining); identifies which episodes or modules may be forked-and-adapted under CC-BY vs authored fresh; maps the curriculum's net-new content (cancer framing, Python parity, CI reproducibility, zero-install path, statistical humility thread, dataset license gate as curriculum); and records the open question resolutions from PLAN.md v0.2 §Open Questions (reuse boundary, biology floor, i18n-readiness).",
+  "acceptanceCriteria": [
+    "Surveys at minimum: Carpentries Data Carpentry Genomics, Bioconductor carpentries-incubator/bioc-intro, and Harvard Chan hbctraining — capturing scope, audience assumptions, language (R/Python/both), CI status, and license.",
+    "Produces a gap table mapping this curriculum's planned modules against the three neighbours, marking each as: (a) fork-and-adapt (CC-BY, cite source), (b) net-new, or (c) complementary-link.",
+    "For any fork-and-adapt candidate, records the specific source episode URL, its license (CC-BY confirmed), and the adaptation rationale (what changes to add cancer framing / Python parity / CI etc.).",
+    "Answers the prior-art reuse boundary open question (PLAN.md §Open Questions #7) and the biology prerequisite floor open question (#8) with a documented decision.",
+    "The document is committed to docs/gap-map.md and reviewed by Pedagogy reviewer; licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md v0.2 (§ Competitive landscape & differentiation, § Goals, § Scope — deliverables, § Roadmap M0 exit criteria, § Open Questions #7, #8)",
+    "tasks/bioinfo-zero-skeleton-005.json (module skeleton this informs)",
+    "tasks/bioinfo-zero-ncpolicy-004.json (NC / CC-BY policy that governs reuse decisions)"
+  ],
+  "output": "docs/gap-map.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

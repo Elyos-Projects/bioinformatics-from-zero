@@ -1,0 +1,38 @@
+{
+  "id": "bioinfo-zero-expr-201",
+  "title": "Module: gene-expression data + normalisation basics",
+  "project": "bioinformatics-from-zero",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "pedagogy",
+    "genomics"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "This module introduces gene-expression data and normalisation basics on a gated, open/de-identified expression dataset. As cancer-biology content it is medium-risk and requires Domain review; it is blocked until the Domain reviewer (reviewer-002) is secured.",
+  "objective": "Author the gene-expression + normalisation-basics module in both tracks on a gated expression dataset, teaching normalisation correctly with provenance and attribution, reviewed by Domain.",
+  "acceptanceCriteria": [
+    "Uses a gated, open/de-identified expression dataset (from datasets.yml); provenance + attribution surfaced.",
+    "Correctly teaches expression-data structure and normalisation basics with reproducible examples.",
+    "Both R and Python tracks; CI green; every biological claim cited; Domain review approved.",
+    "Output licensed CC-BY-4.0. Blocked until the Domain reviewer is secured."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "content/05-expression/expression.qmd",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

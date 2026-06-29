@@ -1,0 +1,40 @@
+{
+  "id": "bioinfo-zero-prereq-dag-013",
+  "title": "Prerequisite / concept dependency DAG: CI-validated and published as learner map",
+  "project": "bioinformatics-from-zero",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "pedagogy",
+    "tooling"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "PLAN.md v0.2 commits to an explicit prerequisite / concept dependency graph (DAG) across lessons — for example, data frames + factors must precede DESeq2 design formulas. The DAG must be: (a) committed in machine-readable form, (b) validated in CI so lesson ordering can never silently violate a prerequisite, and (c) published as the learner's roadmap on the curriculum site. This is an M0 exit criterion per PLAN.md v0.2 and depends on the front-matter schema (objectives-012) whose 'prerequisites' field provides the per-lesson edges.",
+  "objective": "Implement the prerequisite / concept dependency DAG: a committed machine-readable graph (derived from the 'prerequisites' fields in each lesson's front-matter), a CI validation step that detects cycles and prerequisite violations, and a generated learner-facing map (e.g., a Mermaid diagram or JSON rendered to the static site) published on the curriculum site.",
+  "acceptanceCriteria": [
+    "A CI step reads the 'prerequisites' field from every lesson's front-matter (per the schema in objectives-012), builds the DAG, and fails the build if any cycle is detected or if a referenced lesson id does not exist.",
+    "A CI step fails if any lesson's module placement violates its declared prerequisites (e.g., a lesson in M1 that depends on a lesson from M2).",
+    "A committed machine-readable DAG artefact (e.g., dag.json or dag.yml) is generated and checked in or generated in CI for the site build.",
+    "A learner-facing prerequisite map (Mermaid diagram or equivalent) is generated and published to the curriculum site or docs/ directory.",
+    "Reviewed by Technical reviewer; code licensed MIT, generated map licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md v0.2 (§ Goals, § Solution/architecture key decisions, § Roadmap M0 exit criteria)",
+    "tasks/bioinfo-zero-objectives-012.json (front-matter schema whose 'prerequisites' field provides DAG edges)",
+    "tasks/bioinfo-zero-skeleton-005.json (module ordering this validates)",
+    "tasks/bioinfo-zero-ci-007.json (CI pipeline this integrates with)"
+  ],
+  "output": "tools/dag-validator/ (CI script) + .github/workflows/ci.yml step + docs/learner-map.md (generated prerequisite map)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

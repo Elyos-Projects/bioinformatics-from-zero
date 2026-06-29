@@ -1,0 +1,37 @@
+{
+  "id": "bioinfo-zero-video-403",
+  "title": "Captioned video walkthroughs of key modules",
+  "project": "bioinformatics-from-zero",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "low",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "accessibility",
+    "pedagogy"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Captioned video walkthroughs of key modules broaden access for learners who benefit from narrated, captioned material, reusing the caption-commons captioning pattern. Backlog/future item.",
+  "objective": "Produce captioned video walkthroughs (with transcripts) for key modules, reusing the caption-commons pattern, meeting the accessibility checklist.",
+  "acceptanceCriteria": [
+    "Walkthroughs cover key modules with accurate captions and a text transcript.",
+    "Meets the accessibility checklist (captions, transcript, readable on-screen code).",
+    "Reuses the caption-commons captioning pattern; reviewed by Pedagogy; output licensed CC-BY-4.0."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "/output/video/walkthroughs.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

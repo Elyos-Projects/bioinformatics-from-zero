@@ -1,0 +1,37 @@
+{
+  "id": "bioinfo-zero-autograde-401",
+  "title": "Lightweight autograder for exercises",
+  "project": "bioinformatics-from-zero",
+  "type": "code",
+  "lane": "donated",
+  "priority": "low",
+  "domain": [
+    "cancer",
+    "bioinformatics",
+    "education",
+    "open-data",
+    "tooling",
+    "pedagogy"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "A lightweight autograder checks learner exercise outputs against expected results in both tracks, giving self-paced learners feedback without exposing solutions prematurely. Backlog/future item.",
+  "objective": "Implement a lightweight autograder that checks learner outputs versus expected results for module exercises in both R and Python tracks, runnable locally and in CI.",
+  "acceptanceCriteria": [
+    "Checks learner outputs versus expected results for exercises in both tracks.",
+    "Runs locally and in CI without leaking solutions to learners prematurely.",
+    "Documented usage; reviewed by Technical; code licensed MIT."
+  ],
+  "resources": [
+    "PLAN.md (binding cancer guardrails / Data, licensing & compliance)",
+    "TASKS.md (milestone tables + acceptance criteria)",
+    "tasks/bioinfo-zero-gate-001.json (seed task; dataset gate this depends on)"
+  ],
+  "output": "tools/autograder/",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}
