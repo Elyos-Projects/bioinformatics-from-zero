@@ -1,6 +1,6 @@
 # TASKS — bioinformatics-from-zero
 
-> Status: Draft · Version: 0.1.0 · Last updated: 2026-06-28 · Owner: TBD (maintainer) · Lane: donated
+> Status: Draft · Version: 0.2.0 · Last updated: 2026-06-29 · Owner: TBD (maintainer) · Lane: donated
 
 > Binding cancer guardrails apply to every task: **open / aggregate / de-identified data only**;
 > controlled-access and identifiable patient data are out of scope; per-source license verification;
@@ -45,12 +45,15 @@ Each task below becomes an Elyos **Task JSON** validated against
 | bioinfo-zero-reviewer-002 | Name/secure the License+Data-Ethics and Domain reviewer roles | research | small | low | document | — | Maintainer |
 | bioinfo-zero-catalog-003 | Verified-open dataset catalogue (`datasets.yml`) seeded with 3 sources | data | medium | medium | document | gate-001 | License+Data-Ethics |
 | bioinfo-zero-ncpolicy-004 | NC / share-alike vs CC-BY acceptance policy | design-spec | small | medium | document | gate-001 | License+Data-Ethics |
-| bioinfo-zero-skeleton-005 | Curriculum skeleton + per-module learning outcomes | writing | small | low | document | — | Pedagogy |
+| bioinfo-zero-skeleton-005 | Curriculum skeleton + per-module learning outcomes + per-lesson objectives/prereq schema | writing | small | low | document | — | Pedagogy |
 | bioinfo-zero-harness-006 | Reproducibility harness: renv + conda/pixi locks + Quarto dual-track render | code | medium | low | pr | — | Technical |
-| bioinfo-zero-ci-007 | CI: execute every lesson + run dataset-gate audit + a11y/parity checks | code | medium | low | pr | harness-006, gate-001 | Technical |
-| bioinfo-zero-a11y-008 | Accessibility + plain-language authoring checklist | design-spec | small | low | document | — | Pedagogy |
+| bioinfo-zero-ci-007 | CI: execute every lesson + dataset-gate audit + objectives/DAG lint + a11y/parity + zero-install fallback | code | medium | low | pr | harness-006, gate-001, skeleton-005, zeroinstall-012 | Technical |
+| bioinfo-zero-a11y-008 | Accessibility (WCAG 2.2 AA) + plain-language authoring checklist | design-spec | small | low | document | — | Pedagogy |
 | bioinfo-zero-outreach-009 | Partner/educator outreach + adopting-program shortlist | research | small | low | document | — | Maintainer |
 | bioinfo-zero-pilot-010 | Pilot lesson end-to-end (setup / tiny tabular) through full gate chain | writing | medium | low | document | gate-001, catalog-003, skeleton-005, harness-006, ci-007, a11y-008 | Technical, Pedagogy |
+| bioinfo-zero-gapmap-011 | Prior-art delta / gap-map (vs bioc-intro, HBC DGE, Data Carpentry Genomics) + reuse/fork rulings | research | small | low | document | — | Pedagogy, Maintainer |
+| bioinfo-zero-zeroinstall-012 | CI-tested zero-install browser fallback (Binder/repo2docker + fallback) with MB/RAM/cold-load budgets | code | medium | low | pr | harness-006 | Technical |
+| bioinfo-zero-objdag-013 | Learning-objectives + prerequisite-DAG front-matter schema + CI lint | design-spec | small | low | pr | skeleton-005 | Pedagogy, Technical |
 
 **Acceptance criteria — key tasks**
 
@@ -70,6 +73,11 @@ Each task below becomes an Elyos **Task JSON** validated against
   - [ ] At least 3 candidate sources fully recorded and each PASSING the gate (e.g. a Bioconductor
         teaching expression set, DepMap, a SEER*Explorer/GLOBOCAN aggregate) — or flagged/excluded
         with reason if they fail.
+  - [ ] **Provisional per-source rulings recorded:** TCGA open tier = effectively public-domain (subset
+        vendorable, attribution norms apply); **DepMap/CCLE = fetch-by-script, never vendored** (CC BY but
+        murky redistribution); GEO/recount3 = per-series check; SEER/GLOBOCAN = confirm
+        aggregate-redistributable vs reference-only. **NC sources are not claimed as open reuse and no
+        NC-derived material is republished under CC-BY.**
   - [ ] Each record has a license snapshot (committed text + SHA-256 + archival URL) and a
         vendor-vs-fetch decision recorded.
   - [ ] No record has `accessTier` outside the permitted enum; no individual-level record without
@@ -79,24 +87,54 @@ Each task below becomes an Elyos **Task JSON** validated against
 - **harness-006 (reproducibility harness)**
   - [ ] `renv.lock` (R) and `environment.yml`/`pixi.lock` (Python) build clean in a fresh runner.
   - [ ] Quarto renders a dual-track (R + Python) example from one source; outputs deterministic.
-  - [ ] Documented minimum specs + a free cloud-notebook fallback path.
+  - [ ] Documented minimum specs; the **zero-install fallback** is built by zeroinstall-012, not a vague mention.
+
+- **gapmap-011 (prior-art delta / gap-map)**
+  - [ ] One-page delta vs `carpentries-incubator/bioc-intro`, Harvard Chan `hbctraining` DGE, and Data
+        Carpentry Genomics: what each covers, what they assume, and where this curriculum is net-new
+        (from-zero/no-biology-assumed, cancer-specific, dual R+Python, reproducible-by-construction).
+  - [ ] Records, per foundation episode, a **fork-and-adapt (CC-BY) vs author-fresh** ruling to avoid
+        duplication and honour OER licensing.
+
+- **zeroinstall-012 (zero-install browser fallback)**
+  - [ ] A learner can run a lesson with **no local install** via Binder/`repo2docker` (primary), with a
+        Colab/Posit Cloud/Codespaces fallback; `webR`/JupyterLite evaluated for install-free R/Python.
+  - [ ] **CI tests the fallback path** (not just the lockfile build) against declared **download-MB /
+        RAM / cold-load-time budgets**; no single hosted service is a hard dependency.
+
+- **objdag-013 (objectives + prerequisite-DAG lint)**
+  - [ ] Defines a CI-checkable `.qmd` front-matter block: measurable learning objectives ("learner will
+        be able to…"), declared entry-skill floor, and prerequisite lesson ids.
+  - [ ] CI **fails** any lesson missing the block or whose prerequisites violate the committed concept
+        DAG; the DAG is published as the learner map.
 
 - **pilot-010 (pilot lesson)**
-  - [ ] A complete from-zero lesson executes clean in CI in both tracks from lockfiles.
+  - [ ] A complete from-zero lesson executes clean in CI in both tracks from lockfiles **and** runs via
+        the zero-install fallback.
   - [ ] Uses only datasets passing the gate; every factual claim cited; attribution surfaced.
-  - [ ] Passes accessibility checklist; learning outcomes stated; exercise + solution included.
+  - [ ] Carries the **objectives + prerequisite front-matter block** (passes objdag-013 lint); passes the
+        WCAG 2.2 AA accessibility checklist; learning objectives stated; exercise + solution + an
+        auto-checkable formative check included.
   - [ ] Carries correct license; demonstrates the entire gate chain works end-to-end.
 
 **Definition of Done (M0):** dataset gate live and CI-enforced; `datasets.yml` seeded with ≥ 3 passing
-sources; reviewer roles named or explicitly TO BE SECURED; lockfiles + Quarto dual-track render build
-clean in CI; one pilot lesson passes the full gate chain; outreach shortlist drafted.
+sources (with provisional per-source rulings); reviewer roles named or explicitly TO BE SECURED;
+lockfiles + Quarto dual-track render build clean in CI; **zero-install browser fallback CI-tested against
+MB/RAM/cold-load budgets**; **objectives + prerequisite-DAG front-matter lint live in CI**; **prior-art
+gap-map drafted**; one pilot lesson passes the full gate chain; outreach shortlist drafted.
 
 ---
 
 ## Milestone M1 — Core data skills
 
+> **Parity decision (resolves Open Question on parity):** M1 foundations are authored **dual R+Python**
+> (selective-parity policy: advanced genomics in M2 ships single-track-first). Every M1 lesson carries
+> the objectives + prerequisite front-matter block and an **auto-checkable formative check** — the
+> lightweight auto-checker lands **in M1, not post-MVP**.
+
 | ID | Title | Type | Size | Risk | Deliverable | Depends on | Reviewer |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| bioinfo-zero-autocheck-100 | Lightweight auto-checker (expected-output/answer checks) wired into exercises | code | medium | low | pr | ci-007 | Technical |
 | bioinfo-zero-setup-101 | Module: environment setup from zero (terminal, R/Python, notebooks) | writing | medium | low | document | pilot-010 | Technical, Pedagogy |
 | bioinfo-zero-tabular-102 | Module: tabular data wrangling (clinical metadata, tidyverse/pandas) | writing | large | low | document | setup-101 | Technical, Pedagogy |
 | bioinfo-zero-viz-103 | Module: data visualisation for cancer data | writing | medium | low | document | tabular-102 | Technical, Pedagogy |
@@ -116,13 +154,19 @@ clean in CI; one pilot lesson passes the full gate chain; outreach shortlist dra
         disclaimer present where any clinical example appears.
   - [ ] Every claim cited; both tracks; CI green.
 
-**Definition of Done (M1):** all M1 lessons execute clean in CI (both tracks, parity verified);
-technical + pedagogy (+ domain for stats-104) review approved; a beginner test-reader completes the
-module unaided; accessibility passed; datasets all gated.
+**Definition of Done (M1):** all M1 lessons execute clean in CI (both tracks, parity verified) and via
+the zero-install fallback; objectives + prerequisite front-matter present (DAG lint green);
+auto-checkable formative checks present; technical + pedagogy (+ domain for stats-104) review approved;
+a beginner test-reader completes the module unaided; accessibility (WCAG 2.2 AA) passed; datasets all
+gated.
 
 ---
 
 ## Milestone M2 — Cancer-genomics basics
+
+> **Parity decision:** M2 advanced-genomics lessons ship **single-track-first (R-primary, given
+> Bioconductor)** with a Python-parity backlog item — per the selective-parity policy that keeps the
+> project deliverable. Survival viz uses **`ggsurvfit`** (preferred over `survminer`).
 
 | ID | Title | Type | Size | Risk | Deliverable | Depends on | Reviewer |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -183,12 +227,14 @@ complete; translation-readiness pass done; ≥ 1 named educator/program has revi
 
 | ID | Title | Type | Size | Risk | Deliverable | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| bioinfo-zero-autograde-401 | Lightweight autograder for exercises | code | medium | low | pr | Checks learner outputs vs expected |
-| bioinfo-zero-i18n-402 | First translation track (non-patient-facing content) | writing | large | medium | translation | Per-language reviewer needed |
+| bioinfo-zero-autograde-401 | Autograder depth: mastery checks + diagnostic pre-test | code | medium | low | pr | Basic output-check auto-checker already lands in M1 (autocheck-100); this adds mastery/diagnostic depth |
+| bioinfo-zero-i18n-402 | First translation track (non-patient-facing content) + number/date/unit localization | writing | large | medium | translation | Per-language reviewer; localize formats/units |
 | bioinfo-zero-video-403 | Captioned video walkthroughs of key modules | writing | medium | low | document | Reuse `caption-commons` pattern |
 | bioinfo-zero-dataset-404 | Add 3 more gated teaching datasets to `datasets.yml` | data | medium | medium | document | Each via the gate |
 | bioinfo-zero-maint-405 | Scheduled CI re-run + dependency version-bump + re-verification | maintenance | small | low | pr | Recurring; catches lesson rot |
 | bioinfo-zero-singlecell-406 | Optional advanced module: intro single-cell (open data) | writing | large | medium | document | Only after core arc proven |
+| bioinfo-zero-pyparity-407 | Python-parity backfill for the advanced genomics (M2) track | writing | large | medium | document | Selective-parity follow-through after R-primary M2 ships |
+| bioinfo-zero-glittr-408 | List the curriculum on glittr.org + frame as a general-topic curriculum | maintenance | small | low | document | Discoverability; adds verifiable capstone-PR outcome signal |
 
 ---
 
@@ -236,10 +282,10 @@ Complete, schema-valid Task JSON for the first M0 task (`bioinfo-zero-gate-001`)
 
 ## Task count summary
 
-- **M0 — Foundation & cold-start:** 10 tasks
-- **M1 — Core data skills:** 4 tasks
+- **M0 — Foundation & cold-start:** 13 tasks (added gapmap-011, zeroinstall-012, objdag-013)
+- **M1 — Core data skills:** 5 tasks (added autocheck-100)
 - **M2 — Cancer-genomics basics:** 3 tasks
 - **M3 — Synthesis, capstone & adoption:** 3 tasks
-- **Backlog / future:** 6 tasks
-- **Total:** 20 scheduled + 6 backlog. All `lane: donated`, `verifiedNeed: false`, `urgent: false`
+- **Backlog / future:** 8 tasks (added pyparity-407, glittr-408)
+- **Total:** 24 scheduled + 8 backlog. All `lane: donated`, `verifiedNeed: false`, `urgent: false`
   until a partner/reviewer is secured.

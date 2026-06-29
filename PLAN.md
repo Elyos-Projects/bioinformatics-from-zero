@@ -1,6 +1,6 @@
 # PLAN — bioinformatics-from-zero
 
-> Status: Draft · Version: 0.1.0 · Last updated: 2026-06-28 · Owner: TBD (maintainer) · Lane: donated · Risk tier: low (with medium/high exceptions, see §8)
+> Status: Draft · Version: 0.2.0 · Last updated: 2026-06-29 · Owner: TBD (maintainer) · Lane: donated · Risk tier: low (with medium/high exceptions, see §8)
 
 > **Binding cancer guardrails (read §7 first).** This curriculum may use **only open-access,
 > aggregate, or de-identified** data. Controlled-access genomics (dbGaP, EGA, individual-level
@@ -87,8 +87,22 @@ work; no partner or reviewer is assumed to exist.
 **Goals**
 - Produce a **complete from-zero learning path** (R and Python) that a motivated beginner with no
   programming background can follow to reproduce a real cancer-data analysis and explain each step.
+- Anchor every lesson to **per-lesson, measurable learning objectives** (Bloom's-style "the learner
+  will be able to…") and a **declared entry-skill floor** ("never opened a terminal"), expressed as a
+  CI-checkable front-matter block — so "from zero" is a spec, not an aspiration.
+- Commit to an explicit **prerequisite / concept dependency graph (DAG)** across lessons (e.g. data
+  frames + factors before `DESeq2` design formulas), published as the learner's map and validated in
+  CI so lesson ordering can never silently violate a prerequisite.
+- Ship a **real assessment design** (not just exercises-with-solutions): formative checks per lesson,
+  a lightweight auto-checker (expected-output/answer checks, Rosalind-style) from M1, a capstone
+  rubric, and an optional diagnostic pre-test that validates the "from zero" entry floor — all
+  CI-checkable where mechanisable.
 - Make every lesson **reproducible by construction**: pinned environments, executed in CI from a
   clean machine, deterministic outputs, no hidden state.
+- Provide a **first-class, CI-tested zero-install browser fallback** (Binder/`repo2docker`, with a
+  Colab/Posit Cloud/Codespaces fallback, and `webR`/JupyterLite evaluated for install-free R/Python)
+  so a learner on a low-spec/Windows machine never debugs a local install — tested in CI against
+  explicit download-MB / RAM / cold-load-time budgets, not just the lockfile build.
 - Build all content on a **verified-open dataset catalogue** with a machine-readable license +
   provenance + de-identification record for every source.
 - Teach **correct interpretation and statistical humility** — multiple-testing, confounding,
@@ -119,6 +133,7 @@ Outcome-based, beneficiary-centric. Baselines are 0 because the project is green
 | Outcome | Baseline | Target (12 mo) | How measured |
 |---|---|---|---|
 | Learners who complete the from-zero arc and reproduce the capstone analysis unaided | 0 | ≥ 50 self-reported completions with a working capstone artifact | Optional completion survey + public "I did it" capstone gallery (opt-in, no PII) |
+| Verifiable capstone reproductions (harder proxy than opt-in surveys) | 0 | ≥ 15 learner capstone-PRs that pass the curriculum's own CI from a clean environment | Count of merged/checked capstone-PRs (opt-in, no PII) — a harder signal than self-report |
 | Independent reproducibility | n/a | 100% of lessons execute clean in CI on every release; ≥ 3 external learners confirm clean local runs | CI logs + reproducibility reports filed by reviewers/learners |
 | Educator / program adoption | 0 | ≥ 2 named programs adopt ≥ 1 module (the "delivered" gate) | Written confirmation from adopting educator/program |
 | Advocate-researcher enablement | 0 | ≥ 5 patient-advocate researchers report being able to re-run a paper-relevant analysis | Structured testimonial (opt-in) |
@@ -144,7 +159,16 @@ these are vanity signals and are excluded from the definition of success.
   status, checksum, and fetch instructions for every source.
 - A **reproducibility harness**: declared, pinned environments (`renv` for R, conda/pixi for Python)
   and CI that executes every lesson end-to-end from a clean environment.
+- A **first-class, CI-tested zero-install browser fallback** (Binder/`repo2docker` primary; Colab /
+  Posit Cloud / Codespaces fallback; `webR`/JupyterLite evaluated) with explicit MB / RAM / cold-load
+  budgets — promoted from an afterthought to a deliverable the curriculum guarantees and CI exercises.
+- **Per-lesson measurable learning objectives + entry-skill floor** (CI-checkable front-matter), an
+  explicit **prerequisite/concept DAG** validated in CI, and a **real assessment design** (formative
+  checks, an auto-checker from M1, a capstone rubric, optional diagnostic pre-test).
 - Exercises with solutions, instructor notes, a glossary, and learning outcomes per module.
+- A **prior-art delta / gap-map** (vs Carpentries Data Carpentry Genomics, Bioconductor `bioc-intro`,
+  Harvard Chan `hbctraining`) that justifies non-duplication and guides where CC-BY reuse/forking is
+  preferable to fresh authoring.
 - Accessibility baseline and translation-readiness (externalised strings/structure, i18n notes).
 
 **Out of scope**
@@ -179,13 +203,41 @@ the authoring pipeline, the dataset gate, and the CI that guarantees every lesso
 4. **Reproducibility CI** — GitHub Actions that (a) builds both environments from lockfiles in a
    clean runner, (b) executes/renders every lesson, (c) fails on any execution error or undocumented
    network fetch, (d) runs the dataset-gate audit, (e) runs link/accessibility/parity checks.
-5. **Assessment layer** — exercises with hidden/solution variants; optional lightweight autograder
-   (post-MVP) checking learner outputs against expected results.
-6. **Static site** — rendered curriculum published to GitHub Pages (or equivalent), no backend.
+5. **Assessment layer** — per-lesson learning-objective + prerequisite front-matter (CI-linted),
+   formative checks, exercises with hidden/solution variants, and a **lightweight auto-checker**
+   (expected-output/answer checks, Rosalind-style) introduced **from M1** (not deferred), plus a
+   capstone rubric and an optional diagnostic pre-test.
+6. **Zero-install fallback** — a CI-tested browser path (Binder/`repo2docker` primary; Colab / Posit
+   Cloud / Codespaces fallback; `webR`/JupyterLite evaluated) with declared MB / RAM / cold-load
+   budgets, so no single hosted service is a hard dependency and the *learner's* environment — not just
+   the author's — is verified.
+7. **Static site** — rendered curriculum published to GitHub Pages (or equivalent), no backend.
 
-**Tech stack.** Quarto; R (tidyverse, Bioconductor: e.g. `limma`/`DESeq2`, `survival`,
-`survminer`) and Python (pandas, numpy, matplotlib/seaborn, scikit-learn, `lifelines`,
-`statsmodels`); `renv` + conda/pixi for environments; GitHub Actions for CI; MkDocs/Quarto site for
+**Authoring with Claude (draft-and-verify, human-in-the-loop).** Claude is used as drafting leverage,
+never as the arbiter of correctness:
+- **Language-parallel R/Python lessons** — generate first-draft `.qmd` narrative and *parallel* R and
+  Python code from a verified `datasets.yml` row, **verified by execution in CI** (a lesson "works"
+  only because it runs, never because the model says so).
+- **Auto-checkable exercises at scale** — draft graded practice problems, hidden solutions, plausible
+  distractors, and isomorphic capstone variants, then confirm each by running it.
+- **Env / CI scaffolding** — draft `renv.lock` / `environment.yml` / `pixi.toml`, `repo2docker`/Binder
+  config, GitHub Actions, and fetch scripts; propose minimal pinned dependency sets.
+- **Pedagogy & a11y assist** — propose per-lesson objectives, prerequisite-DAG edges, glossary
+  entries, alt text for generated figures, and plain-language rewrites for human review.
+
+**Hard boundaries (per CLAUDE.md guardrails, unchanged).** Technical accuracy is verified by **running
+code in CI**, never by model assertion. Every biological/clinical claim must trace to a cited source;
+**dataset `permitsReuse`/`accessTier` and de-identification status are human decisions** by the
+License + Data-Ethics reviewer (unknown ⇒ excluded). **Pedagogy and final quality are educator-reviewed**
+(ideally a beginner test-reader). Survival/clinical-interpretation content requires **oncologist-aware
+human review** and cannot be merged on AI output alone. No steering toward controlled/identifiable data
+or re-identification, and no clinical/diagnostic/prognostic guidance.
+
+**Tech stack.** Quarto; R (tidyverse, Bioconductor: e.g. `limma`/`DESeq2`, `survival`, and
+`ggsurvfit` for survival viz — preferred over the more lightly maintained `survminer`) and Python
+(pandas, numpy, matplotlib/seaborn, scikit-learn, `lifelines`, `statsmodels`); `renv` + conda/pixi
+for environments; Binder/`repo2docker` (+ Colab/Posit Cloud/Codespaces fallback; `webR`/JupyterLite
+evaluated) for the zero-install learner path; GitHub Actions for CI; MkDocs/Quarto site for
 publishing. All MIT (code/tooling) or CC-BY-4.0 (lesson content). No paid or closed dependencies.
 
 **Data model — dataset record (illustrative).**
@@ -204,6 +256,22 @@ publishing. All MIT (code/tooling) or CC-BY-4.0 (lesson content). No paid or clo
 ```
 
 **Key decisions**
+- **Quarto single-source, dual-track — but *selective* parity to stay deliverable.** Foundations
+  (M1: setup, tabular, viz, stats) are authored dual R+Python; advanced cancer-genomics (M2 DE,
+  survival, clustering) ship **single-track-first** (R-primary, given Bioconductor) with a Python-parity
+  backlog. This closes the central scope risk and Open Question on parity rather than committing to
+  full parity everywhere up front.
+- **Reproducible-by-construction for the *learner*, not only the author.** Every lesson runs in CI from
+  lockfiles **and** in a CI-tested zero-install browser fallback with MB/RAM/cold-load budgets — no
+  single hosted service is a hard dependency.
+- **Objectives + prerequisite DAG are machine-checked.** Every `.qmd` carries a CI-linted
+  learning-objectives + prerequisites block; lesson ordering is validated against a committed concept
+  DAG.
+- **Reuse before re-authoring where licenses allow.** Where CC-BY terms permit, fork/adapt foundation
+  episodes from Carpentries/Bioconductor/HBC for the R track and spend net-new effort on the
+  cancer-specific, Python-parity, and reproducibility layers (good OER citizenship; faster delivery).
+- **`ggsurvfit` over `survminer`** for survival visualisation (the modern, better-maintained option),
+  with `survival` for the models.
 - **Quarto single-source, dual-track.** Reduces drift between R and Python and lets CI execute both.
 - **Fetch-by-script over vendoring**, except tiny subsets with unambiguous redistribution rights —
   keeps us out of redistribution-license trouble and keeps the repo small and honest about provenance.
@@ -212,6 +280,63 @@ publishing. All MIT (code/tooling) or CC-BY-4.0 (lesson content). No paid or clo
   "educational, not medical advice" disclaimer (see §8).
 - **i18n-ready from the start** (externalised structure, plain language) so translation is cheap later
   — but actual translation is out of scope and, if patient-facing, would be `high`-risk.
+
+---
+
+## Competitive landscape & differentiation
+
+Abundant high-quality OER exists for *adjacent* goals, but it splits along three axes that **no single
+leader closes simultaneously**: (a) truly from absolute zero, including **no-biology-assumed**;
+(b) **cancer-specific** open data; and (c) **dual R+Python, reproducible-by-construction** behind a
+verified-open dataset gate.
+
+**Prior art (closest neighbours).**
+- **The Carpentries — Data Carpentry Genomics / Software Carpentry.** Gold-standard pedagogy
+  (per-episode objectives/questions), huge instructor network, CC-BY. But **not cancer-focused**,
+  NGS/variant-calling oriented (not expression/survival), **assumes some biology**, relies on a live
+  instructor, AWS-leaning, and **not fully CI-executed end-to-end**.
+- **Bioconductor / `carpentries-incubator/bioc-intro` (+ `bioc-project`).** "Intro to data analysis
+  with R and Bioconductor, no prior experience," Carpentries-quality, active 2025 community. But
+  **R-only**, **not cancer-specific**, instructor-oriented; RNA-seq courses assume prior R.
+- **Harvard Chan Bioinformatics Core (`hbctraining`).** Excellent free CC-BY DGE (DESeq2/clusterProfiler)
+  and intro R/shell modules, cancer-relevant, widely reused. But **R-only**, assumes basic R, a set of
+  modular workshops rather than one from-zero arc, and **not CI-executed for the learner**.
+- **Galaxy Training Network** (zero-install but teaches the **GUI**, not transferable R/Python coding —
+  complementary); **JHU Genomic Data Science / Coursera** (structured, both languages, but
+  **certificate paywalled**, platform-locked, NGS-emphasis); **EMBL-EBI Cancer Genomics** (cancer-specific
+  but **advanced PhD/postdoc**, assumes R/Unix, cohort-scheduled); **Rosalind** (auto-graded — the
+  feature competitors lack — but sequence-algorithm focused, no data-analysis/stats/cancer);
+  **freeCodeCamp / Kaggle** (great generic coding on-ramps, hosted compute, but not cancer/genomics and
+  no licensing/ethics gate). **glittr.org** is the discovery layer this curriculum must appear on to be
+  found and to read as a "general topic," not a tool tutorial.
+
+**Differentiator (the promise *and* the proof).** **Reproduce a real cancer analysis from absolute
+zero, reproducible-by-construction** — every lesson runs in CI from pinned lockfiles **and** in a
+CI-tested zero-install browser fallback, so "works on my machine" is impossible and the learner never
+debugs an install. Concretely, we win where the intersection is empty:
+1. **One continuous arc** from "never opened a terminal" to "I reproduced and can critique a cancer
+   analysis" — the capstone is the differentiating, deliverable outcome.
+2. **Cancer-specific framing on open data, from zero** — the Galaxy/EBI cancer depth without the prior
+   skill or GUI; the Carpentries/Bioconductor on-ramp without the generic, biology-assumed framing.
+3. **Genuine dual R+Python from one Quarto source** with CI parity checks (selective parity to stay
+   deliverable) — most competitors are R-only or Python-only.
+4. **Reproducible-by-construction for the learner**, not just the author — a trust moat over static OER
+   that silently rots.
+5. **The dataset license + de-identification gate as both guardrail and lesson** — no competitor teaches
+   licensing/controlled-vs-open/de-identification/provenance *as curriculum* while enforcing it on its
+   own materials.
+6. **A statistical-humility thread for cancer data** (multiple testing, confounding, survivorship,
+   correlation≠causation, batch effects) with oncologist-aware review — *correct interpretation*, not
+   just code that runs — uniquely valuable for patient-advocate researchers.
+7. **Self-paced verification** (Rosalind-style auto-checks) that no cancer-data curriculum offers, and
+   **adoptable OER governance for cancer specifically** (CC-BY, instructor notes, low-spec/free-cloud,
+   i18n-ready, glittr-discoverable) aimed at the under-resourced educators and advocacy programs the big
+   providers do not serve.
+
+**Proof of non-duplication.** Because `bioc-intro` already does "intro with R and Bioconductor, no prior
+experience," differentiation is **argued concretely, not asserted**: an M0 **prior-art delta / gap-map**
+(vs `bioc-intro`, HBC DGE, Data Carpentry Genomics) records what we fork-and-adapt under CC-BY vs author
+fresh, and where the cancer / Python-parity / reproducibility layers are net-new.
 
 ---
 
@@ -243,16 +368,32 @@ publishing. All MIT (code/tooling) or CC-BY-4.0 (lesson content). No paid or clo
    treatment guidance. Survival/clinical-interpretation lessons carry a standing disclaimer and are
    reviewed by an oncologist-aware reviewer (§8). Patient-facing material is out of scope.
 
-### Candidate sources (all subject to the gate before use)
+### Candidate sources (all subject to the gate before use; provisional rulings below de-risk M2)
 - **TCGA open-access tier** (de-identified expression + clinical), accessed via curated, openly
   licensed Bioconductor/`recount`-style packages rather than raw portals where possible.
-- **DepMap** (cell-line dependency/expression; CC-BY-style terms — verify current version).
+  **Provisional ruling:** the open-access tier is **effectively public-domain / not covered by the Data
+  Use Certification** (per NCI/Cancer Genomics Cloud guidance) — so it can be confidently classified
+  rather than left `license: see-source`, though **attribution and publication-guideline norms still
+  apply** and the gate still forces verification. A tiny teaching subset is **vendorable**.
+- **DepMap / CCLE** (cell-line dependency/expression). **Provisional ruling: the licensing trap** —
+  distributed under CC BY (4.0) but with "educational use + attribution" community guidance and
+  historically murky CCLE redistribution. Default to **fetch-by-script, never vendored**, until the
+  License + Data-Ethics reviewer rules on the current version.
 - **Bioconductor example datasets** (e.g. classic teaching expression sets; verify each package's
-  license, often Artistic-2.0/CC).
-- **GEO open series** and **recount3** uniformly processed public RNA-seq (verify per-series terms).
+  license, often Artistic-2.0/CC). **NC clauses, where present, are not treated as "open reuse"** and a
+  CC-BY republished derivative cannot be built from them (see NC/share-alike policy below).
+- **GEO open series** and **recount3** uniformly processed public RNA-seq (**per-series** terms vary —
+  check each series; no blanket "open" assumption).
 - **SEER*Explorer / GLOBOCAN aggregate statistics** (aggregate only; individual-level SEER requires a
-  DUA → out of scope).
+  DUA → out of scope). **Confirm per product** whether the aggregate is redistributable vs
+  reference-only before vendoring.
 - **cBioPortal public studies** (verify per-study source terms; many are TCGA-derived).
+
+**NC exclusion principle (sharpened).** Where a source carries a **non-commercial (NC)** or other
+restrictive clause, the plan does **not** claim it as "open reuse": such a source may be referenced or
+fetched-by-script for non-commercial educational use *only if the lesson honours and labels the clause*,
+but **no NC-derived material is republished under the project's CC-BY content license**. Anything whose
+terms cannot be honoured under CC-BY is isolated/relabelled or excluded — never silently treated as open.
 
 Each becomes a row in `datasets.yml` only after passing the gate. The gate is enforced in CI: a
 lesson referencing a dataset id that is missing, `permitsReuse: false`, or `accessTier` outside
@@ -288,7 +429,14 @@ identifying information beyond what a learner volunteers publicly. No analytics 
    deterministic; R/Python parity confirmed where both tracks exist.
 3. **Technical review:** code idiomatic, correct, beginner-appropriate; exercises solvable; solutions
    correct.
-4. **Pedagogy review:** learning outcomes met; difficulty ramp sane; plain language; accessible.
+4. **Pedagogy review:** per-lesson **measurable learning objectives present** (CI-linted front-matter)
+   and met; lesson sits correctly in the **prerequisite DAG**; difficulty ramp sane; plain language;
+   formative checks + auto-checkable exercise present.
+   - **Accessibility (named standard):** target **WCAG 2.2 AA**; **colour-blind-safe palettes mandated
+     inside the plotting lessons themselves**; **alt text / data-table descriptions for every executed
+     figure** across both tracks (a defined alt-text-for-generated-plots workflow, not ad hoc); a11y
+     tools named in CI (**axe / pa11y**) plus manual keyboard/screen-reader testing of the rendered
+     Quarto site; caption/transcript policy for any backlog videos.
 5. **Domain/medical review (medium lessons):** oncologist-aware reviewer confirms biological/clinical
    statements are accurate, sourced, and framed as education with the standing disclaimer.
 
@@ -309,7 +457,11 @@ Phased, with measurable exit criteria. M0 is a thin foundation/cold-start; later
   lesson proving the whole pipeline end-to-end.
 - *Exit criteria:* `datasets.yml` schema + gate live and enforced in CI; License+Data-Ethics and
   Pedagogy/Domain reviewer roles named or explicitly "TO BE SECURED"; renv + conda/pixi lockfiles
-  build clean in CI; Quarto dual-track render works; **one pilot lesson** (setup or a tiny tabular
+  build clean in CI; Quarto dual-track render works; **CI-tested zero-install browser fallback**
+  (Binder/`repo2docker`) green with declared MB/RAM/cold-load budgets; **learning-objectives +
+  prerequisite-DAG front-matter lint** live in CI; **prior-art delta / gap-map** drafted; **provisional
+  per-source dataset rulings** seeded (TCGA vendorable subset; DepMap fetch-only; GEO/recount3 per-series;
+  SEER/GLOBOCAN aggregate redistributable-vs-reference); **one pilot lesson** (setup or a tiny tabular
   lesson) passes the full gate chain; partner-outreach shortlist drafted.
 
 **M1 — Core data skills (no genomics yet).**
@@ -334,8 +486,21 @@ Phased, with measurable exit criteria. M0 is a thin foundation/cold-start; later
 - *Exit criteria:* end-to-end capstone reproducible by an external learner; instructor guide complete;
   ≥ 1 named educator/program has reviewed and (target) adopted ≥ 1 module.
 
-**M4+ (backlog) — Scale.** Autograder, additional datasets/modules, i18n/translation tracks,
-captioned video walkthroughs, deeper optional topics.
+**M4+ (backlog) — Scale.** Autograder depth (mastery/diagnostic pre-tests beyond output checks),
+additional datasets/modules, i18n/translation tracks, captioned video walkthroughs, deeper optional
+topics, Python-parity backfill for the advanced genomics track (selective-parity follow-through), and
+**glittr.org listing** for discoverability.
+
+**Backlog optimizations (from the competitive analysis, folded into the work breakdown / TASKS.md).**
+1. Machine-checkable learning-objectives + prerequisites front-matter, CI-linted (M0). 2. Committed
+prerequisite-DAG validated in CI and published as the learner map (M0). 3. CI-tested zero-install path
+(Binder/`repo2docker` + Colab/Posit/Codespaces fallback; evaluate `webR`/JupyterLite), with budgets (M0).
+4. Resolve dual-track to **selective parity** (foundations dual; advanced single-track-first) (M0/M1).
+5. Lightweight auto-checker from **M1**, not post-MVP. 6. Prior-art delta / gap-map as an M0 deliverable.
+7. Reuse/fork CC-BY foundation episodes where licensed rather than re-authoring. 8. Accessibility to
+**WCAG 2.2 AA** + colour-blind-safe palettes + named tools (axe/pa11y) + alt-text-for-generated-plots
+workflow. 9. Pre-classify candidate datasets (TCGA / DepMap / GEO-recount3 / SEER-GLOBOCAN) in
+`datasets.yml`. 10. glittr listing + a verifiable capstone-PR outcome metric.
 
 ---
 
@@ -385,6 +550,19 @@ self-certified by the lesson's author.
 - **External communities** (outreach targets, no commitment): The Carpentries, Bioconductor/Galaxy
   training, rare-cancer foundations.
 
+**Adjacent opportunities (parallel/perpendicular, not in scope here).** The rig this project builds is
+reusable beyond cancer: a **shared "from-zero curriculum engine"** (Quarto dual-track source +
+objectives/prereq-DAG linting + dataset gate + reproducibility CI + auto-checker + a11y checks) that any
+Elyos education project could fork is arguably the highest-leverage byproduct. The statistical-humility
+thread feeds **`oncology-data-literacy`** (non-coding sibling; shared glossary + disclaimer framework);
+the lockfile/CI/provenance harness generalises into **`reproducibility-curriculum`** (domain-agnostic);
+and the `datasets.yml` gate + license-snapshot pattern should be promoted to the shared, queryable,
+gated **`open-teaching-datasets`** catalogue (bidirectional reuse). A **curriculum/dataset-gate MCP
+server** (tools like `lint_dataset_record`, `check_license`, `verify_lesson_runs`,
+`generate_exercise_variants`, `draft_learning_objectives`) could let any Claude-driven authoring session
+enforce these gates programmatically — confirm any MCP/tooling design against the `claude-api` reference
+before building. These are noted for portfolio sequencing, not committed here.
+
 ---
 
 ## Risks & mitigations
@@ -401,6 +579,10 @@ self-certified by the lesson's author.
 | Reviewer roles unfilled (esp. domain/license) block progress | Medium | High | Name/secure roles in M0; gate medium content until domain reviewer exists | Maintainer |
 | Datasets too large for low-spec learners | Medium | Medium | Tiny teaching subsets; free cloud-notebook fallback; document minimum specs | Technical reviewer |
 | Statistical mis-teaching (p-hacking, ignoring multiple testing) | Medium | High | Dedicated statistical-humility content; technical+domain review; reproducible examples | Pedagogy + Domain reviewers |
+| Single hosted zero-install service (e.g. mybinder.org) has idle-timeout / CPU limits / sustainability risk | Medium | Medium | Treat no hosted service as a hard dependency; CI-test the fallback (Colab/Posit/Codespaces) too; evaluate `webR`/JupyterLite; declare MB/RAM/cold-load budgets | Technical reviewer |
+| Sibling `open-teaching-datasets` outputs assumed but may not exist yet (sequencing dependency) | Medium | Medium | Do not block on the sibling; self-curate via the gate where needed; reuse when available | Maintainer |
+| Scope blow-out from full dual-parity × no-biology-assumed × genomics depth | High | High | Selective parity (foundations dual, advanced single-track-first); reuse CC-BY episodes; minimal biology primer as lesson 0 | Maintainer |
+| i18n-readiness claim weak without number/date/unit localization | Low | Medium | Localize number/date formats and units as part of the i18n-readiness pass; externalise in M0 structure | Pedagogy reviewer |
 
 ---
 
@@ -448,6 +630,20 @@ self-certified by the lesson's author.
    lessons single-track to control effort?
 5. **i18n depth now vs later:** how much translation-readiness do we build into M0–M3 vs defer?
 6. **SEER/GLOBOCAN aggregates:** confirm which aggregate products are redistributable vs reference-only.
+7. **Prior-art reuse boundary:** which Carpentries/Bioconductor/HBC CC-BY episodes do we fork-and-adapt
+   vs author fresh, and does forking change the "from-zero / no-biology-assumed" claim? (Resolve in the
+   M0 gap-map.)
+8. **Biology prerequisite floor:** do we truly assume *zero* biology (≈doubling scope vs Data Carpentry's
+   "some biology assumed"), or define a minimal biology primer as lesson 0?
+9. **Learner zero-install platform:** Binder vs Colab vs Posit Cloud vs Codespaces vs `webR`/JupyterLite
+   — which is primary, which is fallback, and who funds/maintains hosted compute? (mybinder.org
+   sustainability/limits are a live risk.)
+10. **Assessment depth:** how far does the auto-checker go (output checks only, or mastery/diagnostic
+    pre-tests to validate "from zero"), and when in the roadmap?
+11. **DepMap/CCLE specifics:** redistributable-subset vs fetch-only under current terms — needs the
+    License reviewer's per-source ruling.
+12. **Accessibility for generated plots:** what is the sustainable workflow for meaningful alt text /
+    data tables for every executed figure across both tracks?
 
 ---
 
@@ -529,7 +725,9 @@ and to TASKS.md (not left as suggestions):
 
 **Completeness check (against PLAN_SPEC 17-section structure):** all 17 required H2 sections present
 and in order (Executive summary → References), with Data/licensing & compliance leading on the binding
-cancer guardrails as instructed. Appendix A (25 applied improvements) and this sign-off added.
+cancer guardrails as instructed. Appendix A (25 applied improvements) and this sign-off added. **v0.2
+adds one supplementary H2 ("Competitive landscape & differentiation") and a "Changelog — v0.2" section
+from the merged competitive analysis — additive, no required section removed or reordered.**
 
 **Correctness check:**
 - *Guardrails:* open/aggregate/de-identified only; controlled-access and identifiable data declared
@@ -552,3 +750,47 @@ the oncology-aware domain reviewer (required for M2), and the first adopting edu
 per-source vendor-vs-fetch and NC/share-alike acceptance. These are tracked in Open Questions and as
 M0 tasks. **Status: APPROVED to proceed to M0, with medium-risk (M2) content gated until the domain
 reviewer is secured.**
+
+---
+
+## Changelog — v0.2 (analysis merged)
+
+Merges `COMPETITIVE-ANALYSIS.md` (2026-06-29) into the plan. Surgical/additive; no prior guardrail
+weakened.
+
+**Fixes applied (Correctness & completeness review):**
+- Added **per-lesson measurable learning objectives + entry-skill floor** as a CI-checkable
+  front-matter requirement (Goals, Scope, Quality review, M0 exit).
+- Added an explicit **prerequisite/concept DAG** validated in CI and published as the learner map.
+- Added a **real assessment design** (formative checks, auto-checker from M1 not post-MVP, capstone
+  rubric, optional diagnostic pre-test); promoted the auto-checker out of "post-MVP."
+- Promoted a **CI-tested zero-install browser fallback** (Binder/`repo2docker` + Colab/Posit/Codespaces;
+  `webR`/JupyterLite evaluated) to a **first-class deliverable** with MB/RAM/cold-load budgets.
+- Corrected dataset-license states: **TCGA open tier reclassified as effectively public-domain** (gate
+  still verifies; subset vendorable); **DepMap/CCLE flagged fetch-by-script, never vendored**;
+  GEO/recount3 per-series; SEER/GLOBOCAN aggregate-redistributable-vs-reference.
+- Sharpened the **NC exclusion principle**: NC/restrictive sources are not claimed as "open reuse" and
+  no NC-derived material is republished under the CC-BY content license.
+- Switched survival viz to **`ggsurvfit`** over the lightly maintained `survminer`.
+- Tightened **accessibility** to **WCAG 2.2 AA** + colour-blind-safe palettes in plotting lessons +
+  named tools (axe/pa11y) + an alt-text-for-generated-plots workflow.
+- Resolved the central scope risk toward **selective R/Python parity** (foundations dual; advanced
+  single-track-first).
+- Added a **verifiable capstone-PR** outcome metric as a harder proxy than opt-in surveys.
+
+**Integrated additions (strategy):**
+- New **"Competitive landscape & differentiation"** section (Carpentries/Data Carpentry Genomics,
+  Bioconductor `bioc-intro`, Harvard Chan `hbctraining`, Galaxy, JHU/Coursera, EMBL-EBI, Rosalind,
+  freeCodeCamp/Kaggle, glittr); differentiator = **reproduce a real cancer analysis from absolute zero,
+  reproducible-by-construction**.
+- Folded **Claude API leverage** into Solution/architecture (language-parallel R/Python verified by
+  execution; auto-checkable exercises; env/CI scaffolding) with the human-review + run-to-verify
+  boundaries preserved.
+- Folded the **ten optimizations** into the Roadmap/Work-breakdown backlog.
+- Added a **prior-art delta / gap-map** as an M0 deliverable to prove non-duplication.
+- Added an **"Adjacent opportunities"** note (oncology-data-literacy, reproducibility-curriculum,
+  open-teaching-datasets; a shared from-zero curriculum engine; an MCP server).
+- Added Risks: single-hosted-service dependency, `open-teaching-datasets` sequencing dependency, scope
+  blow-out, i18n number/date/unit localization.
+- Merged the analysis's **Open Questions** (prior-art reuse boundary, biology floor, zero-install
+  platform, assessment depth, DepMap specifics, alt-text-for-plots) into the plan's.
