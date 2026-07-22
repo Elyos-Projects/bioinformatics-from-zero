@@ -58,10 +58,10 @@ and ethical — is enforced by process, not hoped for.
   never programmed, and need a ramp that starts at zero.
 - **Patient-advocate researchers** (e.g. rare-cancer foundations, parent-led research groups) who
   want to read and re-run the analyses behind the papers that affect their community — this directly
-  feeds Elyos's cancer track (`patient-advocate-research-primer`, `oncology-data-literacy`).
+  feeds Hee-Lee Oss's cancer track (`patient-advocate-research-primer`, `oncology-data-literacy`).
 - **Educators** in under-resourced universities and community programs who need a free,
   reproducible, adoptable curriculum they can teach without licensing closed software.
-- **Contributors to other Elyos cancer projects** — the curriculum is the on-ramp that turns a
+- **Contributors to other Hee-Lee Oss cancer projects** — the curriculum is the on-ramp that turns a
   newcomer into someone who can responsibly work `ewing-expression-reanalysis`,
   `cancer-dataset-datasheets`, `oncogene-knowledge-graph`, and similar.
 
@@ -70,7 +70,7 @@ cancer data and the freely available skills to use it is widely documented in tr
 and is the explicit motivation for efforts like The Carpentries, Bioconductor training, and Galaxy
 Training. We treat the general need as real. However, the **specific, per-partner need is TO BE
 SECURED**: no named educator, advocacy training program, or training organisation has yet agreed to
-*adopt and review* this curriculum. Under Elyos's "delivered, not merged" bar, output must be
+*adopt and review* this curriculum. Under Hee-Lee Oss's "delivered, not merged" bar, output must be
 accepted and used by a real beneficiary — so until a named partner confirms adoption/review, tasks
 carry `verifiedNeed: false`. This is deliberate honesty, not pessimism.
 
@@ -137,7 +137,7 @@ Outcome-based, beneficiary-centric. Baselines are 0 because the project is green
 | Independent reproducibility | n/a | 100% of lessons execute clean in CI on every release; ≥ 3 external learners confirm clean local runs | CI logs + reproducibility reports filed by reviewers/learners |
 | Educator / program adoption | 0 | ≥ 2 named programs adopt ≥ 1 module (the "delivered" gate) | Written confirmation from adopting educator/program |
 | Advocate-researcher enablement | 0 | ≥ 5 patient-advocate researchers report being able to re-run a paper-relevant analysis | Structured testimonial (opt-in) |
-| Pipeline into other Elyos cancer projects | 0 | ≥ 5 learners go on to open/contribute a task in another cancer-track project | Cross-link from contributor PRs |
+| Pipeline into other Hee-Lee Oss cancer projects | 0 | ≥ 5 learners go on to open/contribute a task in another cancer-track project | Cross-link from contributor PRs |
 | Dataset-gate integrity | n/a | 0 datasets used without a passing license + de-identification record | Audit of `datasets.yml` vs. lessons in CI |
 | Accessibility conformance | n/a | 100% of published lessons pass the accessibility checklist | Automated + manual a11y review |
 
@@ -420,7 +420,7 @@ identifying information beyond what a learner volunteers publicly. No analytics 
 - **medium** — lessons that **interpret clinical/survival data** or cancer-biology claims (need a
   reviewer with statistics + oncology-aware judgement; "not medical advice" framing enforced).
 - **high** — any patient-facing/clinical-guidance material → **out of scope** here; if ever proposed,
-  it requires credentialed oncologist + patient-advocate sign-off before merge (per Elyos policy).
+  it requires credentialed oncologist + patient-advocate sign-off before merge (per Hee-Lee Oss policy).
 
 **Required review before a lesson is "done"**
 1. **Dataset gate (blocking):** every dataset used has a passing `datasets.yml` record (license +
@@ -507,7 +507,7 @@ workflow. 9. Pre-classify candidate datasets (TCGA / DepMap / GEO-recount3 / SEE
 ## Work breakdown
 
 The itemized, schema-mapped backlog lives in **TASKS.md**, organised by the milestones above. Each
-task maps to an Elyos Task JSON (validated against `packages/schema/src/schemas.ts`), with a stable
+task maps to a Hee-Lee Oss Task JSON (validated against `packages/schema/src/schemas.ts`), with a stable
 `bioinfo-zero-<area>-NNN` id, a size, a risk tier, a deliverable, dependencies, and a named reviewer
 role. TASKS.md also carries per-task acceptance criteria for the key tasks, each milestone's
 Definition of Done, a sized-but-unscheduled backlog, and one complete example Task JSON.
@@ -531,19 +531,19 @@ Definition of Done, a sized-but-unscheduled backlog, and one complete example Ta
 - **Partner / requestor: TO BE SECURED.** Adopting educator, advocacy training program, or training org.
 - **Contributors:** donated-lane AI sessions + human authors; all work passes the gates above.
 
-Reviewer rotation and conflict-of-interest follow Elyos governance; medium-risk sign-off may not be
+Reviewer rotation and conflict-of-interest follow Hee-Lee Oss governance; medium-risk sign-off may not be
 self-certified by the lesson's author.
 
 ---
 
 ## Dependencies & integrations
 
-- **Elyos core:** task schema (`packages/schema`), CLI workspace/PR flow, registry entry.
+- **Hee-Lee Oss core:** task schema (`packages/schema`), CLI workspace/PR flow, registry entry.
 - **Open data sources** (each gated): TCGA open tier via curated packages, DepMap, Bioconductor
   example datasets, GEO/recount3, SEER*Explorer/GLOBOCAN aggregates, cBioPortal public studies.
 - **Tooling:** Quarto, R + Bioconductor, Python scientific stack, `renv`, conda/pixi, GitHub Actions,
   GitHub Pages.
-- **Sibling Elyos cancer projects** (consumers/feeders): `oncology-data-literacy`,
+- **Sibling Hee-Lee Oss cancer projects** (consumers/feeders): `oncology-data-literacy`,
   `open-teaching-datasets`, `reproducibility-curriculum`, `patient-advocate-research-primer`,
   `cancer-data-dictionaries`, `cancer-dataset-datasheets`. We reuse `open-teaching-datasets` outputs
   where available rather than re-curating.
@@ -553,7 +553,7 @@ self-certified by the lesson's author.
 **Adjacent opportunities (parallel/perpendicular, not in scope here).** The rig this project builds is
 reusable beyond cancer: a **shared "from-zero curriculum engine"** (Quarto dual-track source +
 objectives/prereq-DAG linting + dataset gate + reproducibility CI + auto-checker + a11y checks) that any
-Elyos education project could fork is arguably the highest-leverage byproduct. The statistical-humility
+Hee-Lee Oss education project could fork is arguably the highest-leverage byproduct. The statistical-humility
 thread feeds **`oncology-data-literacy`** (non-coding sibling; shared glossary + disclaimer framework);
 the lockfile/CI/provenance harness generalises into **`reproducibility-curriculum`** (domain-agnostic);
 and the `datasets.yml` gate + license-snapshot pattern should be promoted to the shared, queryable,
@@ -649,11 +649,11 @@ before building. These are noted for portfolio sequencing, not committed here.
 
 ## References
 
-- `C:\code\elyos\CLAUDE.md` — Elyos work rules, lanes, quality bar, refusal guardrails.
-- `C:\code\elyos\docs\good-deed-definition.md` — the 5 criteria + risk tiers.
-- `C:\code\elyos\packages\schema\src\schemas.ts` — Task JSON schema (TASKS.md maps to this).
-- `C:\code\elyos\planning\ROADMAP.md` — portfolio + Track 8 cancer guardrails (the binding source).
-- `C:\code\elyos\planning\projects\open-data-datasheets\{PLAN,TASKS}.md` — sibling project; dataset
+- `C:\code\hee-lee-oss\CLAUDE.md` — Hee-Lee Oss work rules, lanes, quality bar, refusal guardrails.
+- `C:\code\hee-lee-oss\docs\good-deed-definition.md` — the 5 criteria + risk tiers.
+- `C:\code\hee-lee-oss\packages\schema\src\schemas.ts` — Task JSON schema (TASKS.md maps to this).
+- `C:\code\hee-lee-oss\planning\ROADMAP.md` — portfolio + Track 8 cancer guardrails (the binding source).
+- `C:\code\hee-lee-oss\planning\projects\open-data-datasheets\{PLAN,TASKS}.md` — sibling project; dataset
   license-gate pattern reused here.
 - Quarto; Bioconductor (`limma`, `DESeq2`, `survival`); Python (`pandas`, `lifelines`, `statsmodels`);
   `renv`, conda/pixi — tooling references (to be cited precisely in lessons).
@@ -701,7 +701,7 @@ and to TASKS.md (not left as suggestions):
     actual translation out of scope and flagging patient-facing translation as `high`.
 18. **Specified an accessibility baseline** (alt text, contrast, structure) as a per-lesson gate, with a
     100%-conformance success metric.
-19. **Linked the curriculum into the wider Elyos cancer track** as both a consumer (reuse
+19. **Linked the curriculum into the wider Hee-Lee Oss cancer track** as both a consumer (reuse
     `open-teaching-datasets`) and a feeder (pipeline learners into other projects), making it leverage
     not duplicate.
 20. **Added scheduled CI re-runs + version-bump backlog tasks** so dependency rot is caught and fixed,
@@ -738,7 +738,7 @@ from the merged competitive analysis — additive, no required section removed o
 - *Honesty:* partner, requestor, and reviewer roles marked TO BE SECURED; `verifiedNeed: false`
   throughout; metrics are outcome-based with baseline 0. ✔
 - *Risk tiering:* low overall with explicit medium (clinical-interpretation) carve-outs and high
-  (patient-facing) excluded — consistent with Elyos risk-tier policy. ✔
+  (patient-facing) excluded — consistent with Hee-Lee Oss risk-tier policy. ✔
 
 **Fixes applied during review:** (a) made the dataset gate explicitly CI-blocking rather than advisory;
 (b) added the `accessTier` enum to forbid implicit controlled-access; (c) clarified that the

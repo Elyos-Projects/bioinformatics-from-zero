@@ -84,12 +84,12 @@ Overall: **correct and well-guarded on licensing/ethics/reproducibility-CI; unde
 
 ## 4. Differentiators to win
 
-1. **"Reproduce a real cancer analysis from zero" as the promise and the proof.** A concrete capstone outcome, not a topic list — directly aligned with Elyos "delivered, not merged."
+1. **"Reproduce a real cancer analysis from zero" as the promise and the proof.** A concrete capstone outcome, not a topic list — directly aligned with Hee-Lee Oss "delivered, not merged."
 2. **Reproducible-by-construction + zero-install fallback.** Every lesson runs in CI and in a browser; the learner never debugs an install. This is a trust moat over static OER.
 3. **The dataset gate as both guardrail and lesson.** Licensing/de-identification/provenance enforced in CI *and* taught — a credibility signal no competitor matches, and a perfect fit for the cancer track.
 4. **Genuine R+Python parity from one source** with CI parity checks — serves both ecosystems and future-proofs the learner.
 5. **Statistical-humility + ethics woven throughout**, with oncologist-aware review on interpretation lessons — positions the curriculum as *correct interpretation*, not just code that runs.
-6. **Built to be adopted and remixed by the under-served** (CC-BY, instructor guide, low-spec/free-cloud, i18n-ready, glittr-listed) — and as the on-ramp feeding the rest of the Elyos cancer track.
+6. **Built to be adopted and remixed by the under-served** (CC-BY, instructor guide, low-spec/free-cloud, i18n-ready, glittr-listed) — and as the on-ramp feeding the rest of the Hee-Lee Oss cancer track.
 
 ---
 
@@ -134,10 +134,10 @@ Overall: **correct and well-guarded on licensing/ethics/reproducibility-CI; unde
 
 - **`oncology-data-literacy` (parallel).** A non-coding sibling: read/interpret cancer charts, statistics, and study claims for patient-advocate researchers. This curriculum's statistical-humility thread is the natural feeder; share the glossary and disclaimer framework.
 - **`reproducibility-curriculum` (perpendicular).** Lift the lockfile + CI-executes-everything + provenance harness into a domain-agnostic "reproducible analysis from zero" course. The reproducibility engine here is reusable well beyond cancer.
-- **`open-teaching-datasets` (parallel, bidirectional).** The `datasets.yml` gate + license-snapshot pattern *is* a teaching-dataset catalogue; promote it to a shared, queryable, gated catalogue that other Elyos projects consume — and consume its outputs here.
+- **`open-teaching-datasets` (parallel, bidirectional).** The `datasets.yml` gate + license-snapshot pattern *is* a teaching-dataset catalogue; promote it to a shared, queryable, gated catalogue that other Hee-Lee Oss projects consume — and consume its outputs here.
 - **`open-coding-curriculum` (perpendicular).** Extract the from-zero programming/data/stats foundation (M1) as a domain-neutral coding on-ramp; cancer becomes one of several "tracks" plugged onto a shared base.
 - **`stats-for-clinicians` (parallel).** Repackage the survival/multiple-testing/confounding content (with credentialed review) for clinicians and trainees — higher risk tier, but high impact.
-- **Reusable "from-zero curriculum engine" (perpendicular product).** Generalize the whole rig — Quarto dual-track source + objectives/prereq-DAG linting + dataset gate + reproducibility CI + autograder + a11y checks — into a template repo any Elyos education project forks. This is arguably the highest-leverage byproduct.
+- **Reusable "from-zero curriculum engine" (perpendicular product).** Generalize the whole rig — Quarto dual-track source + objectives/prereq-DAG linting + dataset gate + reproducibility CI + autograder + a11y checks — into a template repo any Hee-Lee Oss education project forks. This is arguably the highest-leverage byproduct.
 - **An MCP server (perpendicular).** A "curriculum/dataset-gate" MCP server exposing tools like `lint_dataset_record`, `check_license`, `verify_lesson_runs`, `generate_exercise_variants`, and `draft_learning_objectives` — lets any Claude-driven authoring session enforce the gates programmatically. (Confirm MCP/tooling design against the `claude-api` reference before building.)
 
 ---
